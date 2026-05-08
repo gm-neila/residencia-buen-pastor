@@ -1,0 +1,1626 @@
+<!doctype html>
+<html lang="es">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Hogar Residencia El Buen Pastor | Residencia de mayores en Béjar
+  </title>
+  <meta content="Residencia de mayores en Béjar desde 1853. Entidad sin ánimo de lucro con 118 plazas, atención integral, cocina propia, jardín, actividades y trato cercano." name="description"/>
+  <meta content="#31533b" name="theme-color"/>
+  <meta content="Hogar Residencia El Buen Pastor | Béjar" property="og:title"/>
+  <meta content="Una residencia de mayores con historia, trato humano y atención integral en Béjar." property="og:description"/>
+  <meta content="website" property="og:type"/>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+   /* ===============================
+   VARIABLES: colores, fuentes y medidas
+   =============================== */
+:root{
+  --verde:#31533b;
+  --verde-secundario:#496d4f;
+  --verde-claro:#dfeadd;
+  --crema:#fbf7ef;
+  --arena:#eadfce;
+  --marron:#694b36;
+  --texto:#211914;
+  --texto-suave:#70665f;
+  --blanco:#fff;
+  --sombra:0 20px 55px rgba(31,25,20,.14);
+  --radio:26px;
+  --fuente-titulos:'Cormorant Garamond',Georgia,serif;
+  --fuente-texto:'Inter',system-ui,sans-serif;
+}
+/* ===============================
+   RESET Y ESTILOS GENERALES
+   =============================== */
+*{
+  box-sizing:border-box
+}
+html{
+  scroll-behavior:smooth
+}
+body{
+  margin:0;
+  background:var(--crema);
+  color:var(--texto);
+  font-family:var(--fuente-texto);
+  line-height:1.6
+}
+img{
+  max-width:100%;
+  display:block
+}
+a{
+  color:inherit;
+  text-decoration:none
+}
+.contenedor{
+  width:min(1160px,92vw);
+  margin:auto
+}
+.etiqueta-seccion{
+  display:inline-flex;
+  gap:.55rem;
+  align-items:center;
+  color:var(--marron);
+  font-weight:800;
+  font-size:.76rem;
+  letter-spacing:.13em;
+  text-transform:uppercase
+}
+.etiqueta-seccion:before{
+  content:"";
+  width:34px;
+  height:2px;
+  background:currentColor;
+  border-radius:5px
+}
+.titulo{
+  font-family:var(--fuente-titulos);
+  font-size:clamp(2.25rem,5vw,4rem);
+  line-height:.98;
+  margin:.65rem 0 0;
+  font-weight:600;
+  letter-spacing:-.03em
+}
+.titulo em{
+  color:var(--verde);
+  font-style:italic
+}
+.texto-destacado{
+  font-size:1.08rem;
+  color:var(--texto-suave);
+  max-width:680px
+}
+.boton{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:.55rem;
+  border-radius:999px;
+  padding:.95rem 1.35rem;
+  font-weight:800;
+  border:2px solid transparent;
+  transition:.2s;
+  cursor:pointer
+}
+.boton.principal{
+  background:var(--verde);
+  color:white;
+  box-shadow:0 10px 25px rgba(49,83,59,.25)
+}
+.boton.principal:hover{
+  transform:translateY(-2px);
+  background:#243f2d
+}
+.boton.secundario{
+  background:white;
+  border-color:rgba(49,83,59,.25);
+  color:var(--verde)
+}
+.boton.secundario:hover{
+  border-color:var(--verde);
+  transform:translateY(-2px)
+}
+.boton.claro{
+  background:white;
+  color:var(--verde)
+}
+/* ===============================
+   BARRA SUPERIOR Y MENÚ
+   =============================== */
+.barra-superior{
+  background:#221810;
+  color:#f4eadc;
+  font-size:.86rem
+}
+.barra-superior .contenedor{
+  display:flex;
+  justify-content:space-between;
+  gap:1rem;
+  padding:.45rem 0;
+  flex-wrap:wrap
+}
+.navegacion{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(251,247,239,.92);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(105,75,54,.12)
+}
+.navegacion-interior{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  padding:.85rem 0
+}
+.marca{
+  display:flex;
+  align-items:center;
+  gap:.8rem
+}
+.logo-marca{
+  width:48px;
+  height:48px;
+  border-radius:16px;
+  background:linear-gradient(135deg,var(--verde),#6f8f63);
+  color:white;
+  display:grid;
+  place-items:center;
+  font-family:var(--fuente-titulos);
+  font-size:1.55rem;
+  font-weight:700;
+  box-shadow:0 10px 22px rgba(49,83,59,.25)
+}
+.marca strong{
+  display:block;
+  font-family:var(--fuente-titulos);
+  font-size:1.45rem;
+  line-height:1;
+  color:var(--verde)
+}
+.marca span{
+  display:block;
+  font-size:.72rem;
+  text-transform:uppercase;
+  letter-spacing:.13em;
+  color:var(--texto-suave);
+  font-weight:800
+}
+.enlaces{
+  display:flex;
+  gap:1.15rem;
+  align-items:center
+}
+.enlaces a:not(.boton){
+  font-size:.88rem;
+  font-weight:700;
+  color:#43372f;
+  opacity:.8
+}
+.enlaces a:hover{
+  opacity:1;
+  color:var(--verde)
+}
+.boton-menu{
+  display:none;
+  background:transparent;
+  border:0;
+  font-size:1.9rem;
+  color:var(--verde)
+}
+/* ===============================
+   PORTADA / HERO
+   =============================== */
+.portada{
+  position:relative;
+  overflow:hidden;
+  padding:clamp(3rem,7vw,6rem) 0;
+  background:radial-gradient(circle at 82% 20%,#d7e7d1 0,transparent 34%),linear-gradient(180deg,#fffaf1 0%,#f5ecdd 100%)
+}
+.portada:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:radial-gradient(rgba(49,83,59,.12) 1px,transparent 1px);
+  background-size:34px 34px;
+  opacity:.45
+}
+.portada-grid{
+  position:relative;
+  display:grid;
+  grid-template-columns:1.02fr .98fr;
+  gap:clamp(2rem,5vw,4.5rem);
+  align-items:center
+}
+.insignia{
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  background:var(--verde-claro);
+  color:var(--verde);
+  padding:.45rem .85rem;
+  border-radius:999px;
+  font-size:.75rem;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.08em
+}
+.portada h1{
+  font-family:var(--fuente-titulos);
+  font-size:clamp(3rem,6vw,5.4rem);
+  line-height:.92;
+  margin:1rem 0 1.1rem;
+  font-weight:700;
+  letter-spacing:-.045em
+}
+.portada h1 em{
+  font-style:italic;
+  color:var(--verde)
+}
+.portada p{
+  font-size:1.18rem;
+  color:#62584f;
+  max-width:660px
+}
+.acciones-portada{
+  display:flex;
+  gap:.85rem;
+  flex-wrap:wrap;
+  margin:1.8rem 0
+}
+.fila-confianza{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:.8rem;
+  margin-top:1.7rem;
+  max-width:720px
+}
+.dato-confianza{
+  background:rgba(255,255,255,.72);
+  border:1px solid rgba(105,75,54,.13);
+  border-radius:18px;
+  padding:1rem;
+  box-shadow:0 8px 20px rgba(31,25,20,.06)
+}
+.dato-confianza strong{
+  display:block;
+  font-family:var(--fuente-titulos);
+  font-size:1.45rem;
+  color:var(--verde);
+  line-height:1
+}
+.dato-confianza small{
+  font-weight:700;
+  color:var(--texto-suave)
+}
+.foto-portada{
+  position:relative
+}
+.foto-portada .foto{
+  border-radius:34px 120px 34px 34px;
+  overflow:hidden;
+  box-shadow:var(--sombra);
+  aspect-ratio:4/4.5;
+  background:#ddd
+}
+.foto-portada img{
+  width:100%;
+  height:100%;
+  object-fit:cover
+}
+.tarjeta-rapida{
+  position:absolute;
+  left:-1.2rem;
+  bottom:1.4rem;
+  background:white;
+  border-radius:22px;
+  padding:1.1rem 1.25rem;
+  box-shadow:var(--sombra);
+  max-width:270px
+}
+.tarjeta-rapida strong{
+  display:block;
+  color:var(--verde);
+  font-size:1.05rem
+}
+.tarjeta-rapida span{
+  font-size:.9rem;
+  color:var(--texto-suave)
+}
+/* ===============================
+   FRANJA DE DATOS DESTACADOS
+   =============================== */
+.franja{
+  background:var(--verde);
+  color:white
+}
+.franja-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:1px;
+  background:rgba(255,255,255,.18)
+}
+.franja .elemento{
+  padding:1.3rem 1rem;
+  text-align:center;
+  background:var(--verde)
+}
+.franja b{
+  display:block;
+  font-family:var(--fuente-titulos);
+  font-size:1.25rem
+}
+.franja small{
+  opacity:.8
+}
+/* ===============================
+   SECCIONES GENERALES
+   =============================== */
+.seccion{
+  padding:clamp(4rem,7vw,6.5rem) 0
+}
+.fondo-blanco{
+  background:white
+}
+.fondo-arena{
+  background:var(--arena)
+}
+.fondo-oscuro{
+  background:#211914;
+  color:#f8efe3
+}
+.fondo-oscuro .titulo{
+  color:#f8efe3
+}
+.fondo-oscuro .texto-destacado,.fondo-oscuro p{
+  color:rgba(248,239,227,.74)
+}
+.grid-dos{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:clamp(2rem,5vw,4.5rem);
+  align-items:center
+}
+.tarjeta-imagen{
+  border-radius:var(--radio);
+  overflow:hidden;
+  box-shadow:var(--sombra);
+  background:white
+}
+.tarjeta-imagen img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  aspect-ratio:4/3
+}
+.lista-comprobacion{
+  display:grid;
+  gap:.9rem;
+  margin-top:1.4rem
+}
+.comprobacion{
+  display:flex;
+  gap:.9rem;
+  align-items:flex-start;
+  background:#fff;
+  border:1px solid rgba(105,75,54,.12);
+  border-radius:20px;
+  padding:1rem
+}
+.comprobacion i{
+  font-style:normal;
+  background:var(--verde-claro);
+  color:var(--verde);
+  width:34px;
+  height:34px;
+  display:grid;
+  place-items:center;
+  border-radius:12px;
+  font-weight:900;
+  flex:0 0 auto
+}
+.comprobacion h3{
+  margin:0;
+  font-size:1.03rem
+}
+.comprobacion p{
+  margin:.15rem 0 0;
+  color:var(--texto-suave);
+  font-size:.94rem
+}
+.tarjetas{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1rem;
+  margin-top:2rem
+}
+.tarjeta{
+  background:white;
+  border:1px solid rgba(105,75,54,.12);
+  border-radius:24px;
+  padding:1.35rem;
+  box-shadow:0 10px 25px rgba(31,25,20,.05)
+}
+.fondo-oscuro .tarjeta{
+  background:rgba(255,255,255,.06);
+  border-color:rgba(255,255,255,.1)
+}
+.tarjeta .icono{
+  font-size:1.7rem
+}
+.tarjeta h3{
+  font-family:var(--fuente-titulos);
+  font-size:1.45rem;
+  margin:.45rem 0 .25rem
+}
+.tarjeta p{
+  margin:0;
+  color:var(--texto-suave)
+}
+.fondo-oscuro .tarjeta p{
+  color:rgba(248,239,227,.68)
+}
+/* ===============================
+   HISTORIA Y LÍNEA DE TIEMPO
+   =============================== */
+.linea-tiempo{
+  display:grid;
+  gap:.75rem;
+  margin-top:1.5rem
+}
+.hito{
+  display:grid;
+  grid-template-columns:92px 1fr;
+  gap:1rem;
+  background:rgba(255,255,255,.65);
+  border:1px solid rgba(105,75,54,.12);
+  border-radius:20px;
+  padding:1rem
+}
+.hito b{
+  font-family:var(--fuente-titulos);
+  font-size:1.5rem;
+  color:var(--verde)
+}
+.hito p{
+  margin:0;
+  color:var(--texto-suave)
+}
+/* ===============================
+   GALERÍA, INSTALACIONES Y ACTIVIDADES
+   =============================== */
+.galeria{
+  display:grid;
+  grid-template-columns:1.3fr 1fr 1fr;
+  gap:1rem;
+  margin-top:2rem
+}
+.galeria figure{
+  margin:0;
+  position:relative;
+  overflow:hidden;
+  border-radius:26px;
+  box-shadow:0 12px 30px rgba(31,25,20,.12);
+  background:#ddd
+}
+.galeria figure:first-child{
+  grid-row:span 2
+}
+.galeria img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  aspect-ratio:1.15/1
+}
+.galeria figure:first-child img{
+  aspect-ratio:1/1.45
+}
+.galeria figcaption{
+  position:absolute;
+  left:.8rem;
+  right:.8rem;
+  bottom:.8rem;
+  background:rgba(33,25,20,.78);
+  color:white;
+  border-radius:18px;
+  padding:.75rem .9rem;
+  font-weight:900;
+  backdrop-filter:blur(8px)
+}
+.plantas-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1rem;
+  margin-top:2rem
+}
+.lista-etiquetas{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.6rem;
+  margin-top:1rem
+}
+.etiqueta{
+  background:white;
+  color:#3a302a;
+  border:1px solid rgba(105,75,54,.13);
+  border-radius:999px;
+  padding:.55rem .8rem;
+  font-weight:700;
+  font-size:.9rem
+}
+.actividades-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1rem;
+  margin-top:2rem
+}
+.actividad{
+  position:relative;
+  border-radius:24px;
+  overflow:hidden;
+  box-shadow:0 12px 30px rgba(31,25,20,.12)
+}
+.actividad img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  aspect-ratio:1/1
+}
+.actividad span{
+  position:absolute;
+  left:.75rem;
+  right:.75rem;
+  bottom:.75rem;
+  background:rgba(255,255,255,.9);
+  border-radius:999px;
+  padding:.55rem .75rem;
+  font-weight:900;
+  text-align:center;
+  color:var(--verde)
+}
+.llamada-accion{
+  background:linear-gradient(135deg,var(--verde),var(--marron));
+  color:white;
+  border-radius:34px;
+  padding:clamp(1.7rem,4vw,3rem);
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:2rem;
+  align-items:center;
+  margin-top:2rem;
+  box-shadow:var(--sombra)
+}
+.llamada-accion h2{
+  font-family:var(--fuente-titulos);
+  font-size:clamp(2rem,4vw,3.2rem);
+  line-height:1;
+  margin:0
+}
+.llamada-accion p{
+  color:rgba(255,255,255,.82);
+  max-width:720px
+}
+/* ===============================
+   CONTACTO Y MAPA
+   =============================== */
+.contacto-grid{
+  display:grid;
+  grid-template-columns:.9fr 1.1fr;
+  gap:1.2rem;
+  margin-top:2rem
+}
+.contacto-caja{
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:28px;
+  padding:1.6rem
+}
+.contacto-fila{
+  display:flex;
+  gap:.9rem;
+  margin:.9rem 0;
+  align-items:flex-start
+}
+.contacto-fila i{
+  font-style:normal;
+  background:var(--verde);
+  width:42px;
+  height:42px;
+  border-radius:15px;
+  display:grid;
+  place-items:center;
+  flex:0 0 auto
+}
+.contacto-fila b{
+  display:block;
+  color:#fff
+}
+.contacto-fila span,.contacto-fila a{
+  color:rgba(248,239,227,.78)
+}
+.tarjeta-mapa{
+  background:linear-gradient(135deg,#e5edd9,#cdddc8);
+  border-radius:28px;
+  min-height:390px;
+  position:relative;
+  overflow:hidden;
+  color:#203427;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  padding:2rem
+}
+.tarjeta-mapa:before{
+  content:"";
+  position:absolute;
+  inset:-20%;
+  background:repeating-linear-gradient(35deg,rgba(49,83,59,.11) 0 18px,transparent 18px 58px),repeating-linear-gradient(115deg,rgba(105,75,54,.08) 0 14px,transparent 14px 70px)
+}
+.marcador-mapa{
+  position:relative;
+  background:white;
+  border-radius:28px;
+  padding:1.4rem;
+  box-shadow:var(--sombra);
+  max-width:420px
+}
+.marcador-mapa .grande{
+  font-size:2.4rem
+}
+.preguntas-frecuentes{
+  display:grid;
+  gap:.7rem;
+  margin-top:2rem
+}
+details{
+  background:white;
+  border:1px solid rgba(105,75,54,.13);
+  border-radius:18px;
+  padding:1rem 1.2rem
+}
+summary{
+  font-weight:900;
+  color:var(--verde);
+  cursor:pointer
+}
+details p{
+  color:var(--texto-suave);
+  margin:.7rem 0 0
+}
+/* ===============================
+   PIE DE PÁGINA Y BOTONES FLOTANTES
+   =============================== */
+footer{
+  background:#17110d;
+  color:rgba(248,239,227,.65);
+  padding:3rem 0 6rem
+}
+.pie-grid{
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr;
+  gap:2rem
+}
+footer h3,footer h4{
+  color:#fff;
+  margin-top:0
+}
+footer a:hover{
+  color:white
+}
+.barra-flotante{
+  position:fixed;
+  left:50%;
+  bottom:1rem;
+  transform:translateX(-50%);
+  z-index:80;
+  display:flex;
+  gap:.7rem;
+  background:rgba(255,255,255,.78);
+  backdrop-filter:blur(14px);
+  border:1px solid rgba(105,75,54,.15);
+  box-shadow:var(--sombra);
+  padding:.55rem;
+  border-radius:999px
+}
+.barra-flotante .boton{
+  padding:.8rem 1.2rem
+}
+/* ===============================
+   RESPONSIVE: tablet y móvil
+   =============================== */
+@media (max-width:920px){
+  .enlaces{
+    display:none
+  }
+  .boton-menu{
+    display:block
+  }
+  .navegacion.abierto .enlaces{
+    display:flex;
+    position:absolute;
+    left:4vw;
+    right:4vw;
+    top:78px;
+    flex-direction:column;
+    background:white;
+    border-radius:24px;
+    padding:1rem;
+    box-shadow:var(--sombra);
+    align-items:stretch
+  }
+  .navegacion.abierto .enlaces a{
+    padding:.7rem
+  }
+  .portada-grid,.grid-dos,.contacto-grid,.plantas-grid{
+    grid-template-columns:1fr
+  }
+  .foto-portada{
+    order:-1
+  }
+  .tarjeta-rapida{
+    left:1rem;
+    right:1rem;
+    max-width:none
+  }
+  .fila-confianza{
+    grid-template-columns:1fr
+  }
+  .franja-grid{
+    grid-template-columns:repeat(2,1fr)
+  }
+  .tarjetas{
+    grid-template-columns:1fr 1fr
+  }
+  .galeria{
+    grid-template-columns:1fr 1fr
+  }
+  .galeria figure:first-child{
+    grid-row:auto
+  }
+  .galeria figure:first-child img,.galeria img{
+    aspect-ratio:1.25/1
+  }
+  .actividades-grid{
+    grid-template-columns:1fr 1fr
+  }
+  .llamada-accion{
+    grid-template-columns:1fr
+  }
+  .pie-grid{
+    grid-template-columns:1fr
+  }
+}
+@media (max-width:560px){
+  .barra-superior .contenedor{
+    display:none
+  }
+  .marca strong{
+    font-size:1.2rem
+  }
+  .logo-marca{
+    width:42px;
+    height:42px
+  }
+  .portada{
+    padding-top:1.5rem
+  }
+  .portada h1{
+    font-size:3rem
+  }
+  .acciones-portada .boton{
+    width:100%
+  }
+  .tarjetas,.galeria{
+    grid-template-columns:1fr
+  }
+  .franja-grid{
+    grid-template-columns:1fr
+  }
+  .barra-flotante{
+    left:.7rem;
+    right:.7rem;
+    transform:none;
+    justify-content:center
+  }
+  .barra-flotante .boton{
+    flex:1;
+    font-size:.92rem;
+    padding:.75rem .7rem
+  }
+}
+  </style>
+  <script type="application/ld+json">
+   {"@context":"https://schema.org","@type":"LocalBusiness","name":"Hogar Residencia El Buen Pastor","description":"Residencia de mayores en Béjar desde 1853, entidad sin ánimo de lucro.","telephone":"+34 923 40 27 02","email":"buenpastorbejar@gmail.com","address":{"@type":"PostalAddress","streetAddress":"Calle Flamencos, 12","postalCode":"37700","addressLocality":"Béjar","addressRegion":"Salamanca","addressCountry":"ES"}}
+  </script>
+ </head>
+ <body>
+  <!-- BARRA SUPERIOR DE CONTACTO -->
+  <div class="barra-superior">
+   <div class="contenedor">
+    <span>
+     Residencia de mayores en Béjar · Asociación sin ánimo de lucro
+    </span>
+    <span>
+     📞
+     <a href="tel:+34923402702">
+      923 40 27 02
+     </a>
+     · ✉️
+     <a href="mailto:buenpastorbejar@gmail.com">
+      buenpastorbejar@gmail.com
+     </a>
+    </span>
+   </div>
+  </div>
+  <!-- MENÚ PRINCIPAL -->
+  <nav class="navegacion" id="navegacion">
+   <div class="contenedor navegacion-interior">
+    <a class="marca" href="#inicio">
+     <div class="logo-marca">
+      BP
+     </div>
+     <div>
+      <strong>
+       El Buen Pastor
+      </strong>
+      <span>
+       Béjar · desde 1853
+      </span>
+     </div>
+    </a>
+    <button aria-label="Abrir menú" class="boton-menu" id="botonMenu">
+     ☰
+    </button>
+    <div class="enlaces">
+     <a href="#quienes">
+      Quiénes somos
+     </a>
+     <a href="#servicios">
+      Servicios
+     </a>
+     <a href="#instalaciones">
+      Instalaciones
+     </a>
+     <a href="#vida">
+      Vida diaria
+     </a>
+     <a href="#ingreso">
+      Ingreso
+     </a>
+     <a class="boton principal" href="#contacto">
+      Contactar
+     </a>
+    </div>
+   </div>
+  </nav>
+  <!-- CONTENIDO PRINCIPAL -->
+  <main>
+   <!-- PORTADA -->
+   <section class="portada" id="inicio">
+    <div class="contenedor portada-grid">
+     <div>
+      <span class="insignia">
+       Hogar residencia · trato cercano
+      </span>
+      <h1>
+       Un hogar seguro para quienes más
+       <em>
+        queremos
+       </em>
+      </h1>
+      <p>
+       En El Buen Pastor cuidamos a personas mayores con atención integral, cocina propia, jardín, actividades y una trayectoria de más de 170 años al servicio de Béjar.
+      </p>
+      <div class="acciones-portada">
+       <a class="boton principal" href="tel:+34923402702">
+        📞 Llamar ahora
+       </a>
+       <a class="boton secundario" href="#contacto">
+        Solicitar información
+       </a>
+      </div>
+      <div class="fila-confianza">
+       <div class="dato-confianza">
+        <strong>
+         1853
+        </strong>
+        <small>
+         Fundación
+        </small>
+       </div>
+       <div class="dato-confianza">
+        <strong>
+         118
+        </strong>
+        <small>
+         plazas residenciales
+        </small>
+       </div>
+       <div class="dato-confianza">
+        <strong>
+         Sin lucro
+        </strong>
+        <small>
+         vocación social
+        </small>
+       </div>
+      </div>
+     </div>
+     <div class="foto-portada">
+      <div class="foto">
+       <img alt="Fachada del Hogar Residencia El Buen Pastor en Béjar" src="imagenes/foto-01-fachada-del-hogar-residencia-el-buen-pasto.jpg"/>
+      </div>
+      <div class="tarjeta-rapida">
+       <strong>
+        Concertar una visita
+       </strong>
+       <span>
+        Llámenos y le orientamos sobre plazas, requisitos y proceso de ingreso.
+       </span>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section class="franja">
+    <div class="contenedor franja-grid">
+     <div class="elemento">
+      🌿
+      <b>
+       Jardín propio
+      </b>
+      <small>
+       paseo y descanso
+      </small>
+     </div>
+     <div class="elemento">
+      🍽️
+      <b>
+       Cocina propia
+      </b>
+      <small>
+       menús adaptados
+      </small>
+     </div>
+     <div class="elemento">
+      🩺
+      <b>
+       Atención sanitaria
+      </b>
+      <small>
+       medicina y enfermería
+      </small>
+     </div>
+     <div class="elemento">
+      🧠
+      <b>
+       Vida activa
+      </b>
+      <small>
+       terapia y actividades
+      </small>
+     </div>
+     <div class="elemento">
+      🏡
+      <b>
+       Estancias permanentes
+      </b>
+      <small>
+       ambiente familiar
+      </small>
+     </div>
+    </div>
+   </section>
+   <!-- QUIÉNES SOMOS -->
+   <section class="seccion fondo-blanco" id="quienes">
+    <div class="contenedor grid-dos">
+     <div class="tarjeta-imagen">
+      <img alt="Galerías con luz natural en la residencia" src="imagenes/foto-02-galerias-con-luz-natural-en-la-residencia.jpg"/>
+     </div>
+     <div>
+      <div class="etiqueta-seccion">
+       Quiénes somos
+      </div>
+      <h2 class="titulo">
+       Cercanía, historia y
+       <em>
+        confianza
+       </em>
+      </h2>
+      <p class="texto-destacado">
+       Una asociación privada sin ánimo de lucro dedicada al cuidado de personas mayores. Una residencia con arraigo bejarano, gestionada con vocación de servicio y una idea sencilla: que cada residente se sienta acompañado, atendido y en casa.
+      </p>
+      <div class="lista-comprobacion">
+       <div class="comprobacion">
+        <i>
+         ✓
+        </i>
+        <div>
+         <h3>
+          Trato humano y familiar
+         </h3>
+         <p>
+          Atención cercana para residentes y familias, con acompañamiento en el proceso de ingreso.
+         </p>
+        </div>
+       </div>
+       <div class="comprobacion">
+        <i>
+         ✓
+        </i>
+        <div>
+         <h3>
+          Institución bejarana
+         </h3>
+         <p>
+          Más de siglo y medio vinculada a la vida social de Béjar.
+         </p>
+        </div>
+       </div>
+       <div class="comprobacion">
+        <i>
+         ✓
+        </i>
+        <div>
+         <h3>
+          Entidad sin ánimo de lucro
+         </h3>
+         <p>
+          La prioridad es el cuidado, la convivencia y el bienestar de las personas mayores.
+         </p>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section class="seccion fondo-arena">
+    <div class="contenedor grid-dos">
+     <div>
+      <div class="etiqueta-seccion">
+       Historia
+      </div>
+      <h2 class="titulo">
+       Más de 170 años
+       <em>
+        cuidando
+       </em>
+      </h2>
+      <p class="texto-destacado">
+       El Buen Pastor nació en 1853 para atender a personas necesitadas y ha evolucionado hasta convertirse en un centro residencial adaptado a las necesidades actuales.
+      </p>
+     </div>
+     <div class="linea-tiempo">
+      <div class="hito">
+       <b>
+        1853
+       </b>
+       <p>
+        Apertura de la institución en Nochebuena.
+       </p>
+      </div>
+      <div class="hito">
+       <b>
+        1972
+       </b>
+       <p>
+        Inauguración de la sede actual en Calle Flamencos.
+       </p>
+      </div>
+      <div class="hito">
+       <b>
+        2003
+       </b>
+       <p>
+        Medalla de Oro de la Ciudad de Béjar.
+       </p>
+      </div>
+      <div class="hito">
+       <b>
+        2008
+       </b>
+       <p>
+        Reconocimiento de la Junta de Castilla y León por la calidad de vida de las personas mayores.
+       </p>
+      </div>
+     </div>
+    </div>
+   </section>
+   <!-- SERVICIOS -->
+   <section class="seccion fondo-oscuro" id="servicios">
+    <div class="contenedor">
+     <div class="etiqueta-seccion">
+      Servicios
+     </div>
+     <h2 class="titulo">
+      Atención integral en el propio centro
+     </h2>
+     <p class="texto-destacado">
+      Servicios asistenciales, sanitarios, sociales y de ocio coordinados para facilitar el día a día.
+     </p>
+     <div class="tarjetas">
+      <div class="tarjeta">
+       <div class="icono">
+        🩺
+       </div>
+       <h3>
+        Salud
+       </h3>
+       <p>
+        Medicina general, enfermería, farmacia y seguimiento diario.
+       </p>
+      </div>
+      <div class="tarjeta">
+       <div class="icono">
+        🦽
+       </div>
+       <h3>
+        Rehabilitación
+       </h3>
+       <p>
+        Fisioterapia, gimnasio y mantenimiento de la movilidad.
+       </p>
+      </div>
+      <div class="tarjeta">
+       <div class="icono">
+        🧠
+       </div>
+       <h3>
+        Terapia ocupacional
+       </h3>
+       <p>
+        Estimulación cognitiva, talleres y actividades funcionales.
+       </p>
+      </div>
+      <div class="tarjeta">
+       <div class="icono">
+        🥗
+       </div>
+       <h3>
+        Nutrición
+       </h3>
+       <p>
+        Cocina propia y dietas adaptadas a las necesidades de cada persona.
+       </p>
+      </div>
+      <div class="tarjeta">
+       <div class="icono">
+        👥
+       </div>
+       <h3>
+        Trabajo social
+       </h3>
+       <p>
+        Orientación y apoyo a residentes y familiares.
+       </p>
+      </div>
+      <div class="tarjeta">
+       <div class="icono">
+        🎭
+       </div>
+       <h3>
+        Ocio y comunidad
+       </h3>
+       <p>
+        Biblioteca, prensa, sala multimedia, celebraciones, huerto y coro.
+       </p>
+      </div>
+     </div>
+    </div>
+   </section>
+   <!-- INSTALACIONES -->
+   <section class="seccion" id="instalaciones">
+    <div class="contenedor">
+     <div style="text-align:center">
+      <div class="etiqueta-seccion">
+       Instalaciones
+      </div>
+      <h2 class="titulo">
+       Espacios reales para
+       <em>
+        vivir bien
+       </em>
+      </h2>
+      <p class="texto-destacado" style="margin-left:auto;margin-right:auto">
+       Habitaciones, jardín, galerías soleadas y zonas comunes diseñadas para la convivencia, el descanso y la atención diaria.
+      </p>
+     </div>
+     <div class="galeria">
+      <figure>
+       <img alt="Jardín exterior de la residencia" src="imagenes/foto-03-jardin-exterior-de-la-residencia.jpg"/>
+       <figcaption>
+        Jardín y zonas exteriores
+       </figcaption>
+      </figure>
+      <figure>
+       <img alt="Habitación de la residencia" src="imagenes/foto-04-habitacion-de-la-residencia.jpg"/>
+       <figcaption>
+        Habitaciones individuales y dobles
+       </figcaption>
+      </figure>
+      <figure>
+       <img alt="Galerías con luz natural" src="imagenes/foto-02-galerias-con-luz-natural-en-la-residencia.jpg"/>
+       <figcaption>
+        Galerías con luz natural
+       </figcaption>
+      </figure>
+      <figure>
+       <img alt="Actividad grupal en salón" src="imagenes/foto-05-actividad-grupal-en-salon.jpg"/>
+       <figcaption>
+        Salones y convivencia
+       </figcaption>
+      </figure>
+      <figure>
+       <img alt="Sala común de la residencia" src="imagenes/foto-06-sala-comun-de-la-residencia.jpg"/>
+       <figcaption>
+        Salas comunes
+       </figcaption>
+      </figure>
+     </div>
+     <div class="plantas-grid">
+      <div class="tarjeta">
+       <h3>
+        Distribución del edificio
+       </h3>
+       <p>
+        Recepción, administración, lavandería, salones, comedor, capilla, cocina propia, consulta médica, enfermería, gimnasio y plantas residenciales.
+       </p>
+      </div>
+      <div class="tarjeta">
+       <h3>
+        Habitaciones
+       </h3>
+       <p>
+        Habitaciones individuales y dobles con baño adaptado, cama articulada, llamador de emergencia, teléfono, televisión, armario y luz natural.
+       </p>
+       <div class="lista-etiquetas">
+        <span class="etiqueta">
+         Baño adaptado
+        </span>
+        <span class="etiqueta">
+         Cama articulada
+        </span>
+        <span class="etiqueta">
+         Llamador
+        </span>
+        <span class="etiqueta">
+         Luz natural
+        </span>
+        <span class="etiqueta">
+         Personalizables
+        </span>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <!-- VIDA DIARIA -->
+   <section class="seccion fondo-blanco" id="vida">
+    <div class="contenedor">
+     <div class="grid-dos">
+      <div>
+       <div class="etiqueta-seccion">
+        Vida diaria
+       </div>
+       <h2 class="titulo">
+        Cuidar también es
+        <em>
+         acompañar
+        </em>
+       </h2>
+       <p class="texto-destacado">
+        La residencia promueve convivencia, participación y bienestar emocional: gimnasia adaptada, estimulación cognitiva, manualidades, celebraciones, huerto urbano, actividades al aire libre y el Coro Jovial.
+       </p>
+      </div>
+      <div class="tarjeta-imagen">
+       <img alt="Coro Jovial del Buen Pastor" src="imagenes/foto-07-coro-jovial-del-buen-pastor.jpg"/>
+      </div>
+     </div>
+     <div class="actividades-grid">
+      <div class="actividad">
+       <img alt="Merienda en el jardín" src="imagenes/foto-08-merienda-en-el-jardin.jpg"/>
+       <span>
+        Meriendas
+       </span>
+      </div>
+      <div class="actividad">
+       <img alt="Baile y actividad grupal" src="imagenes/foto-05-actividad-grupal-en-salon.jpg"/>
+       <span>
+        Actividades
+       </span>
+      </div>
+      <div class="actividad">
+       <img alt="Coro Jovial" src="imagenes/foto-07-coro-jovial-del-buen-pastor.jpg"/>
+       <span>
+        Coro Jovial
+       </span>
+      </div>
+      <div class="actividad">
+       <img alt="Actividad al aire libre" src="imagenes/foto-09-actividad-al-aire-libre.jpg"/>
+       <span>
+        Aire libre
+       </span>
+      </div>
+     </div>
+     <div class="llamada-accion">
+      <div>
+       <h2>
+        ¿Quiere conocer la residencia?
+       </h2>
+       <p>
+        La mejor forma de decidir es hablar con el centro y resolver dudas sobre plazas, requisitos, cuidados y vida diaria.
+       </p>
+      </div>
+      <a class="boton claro" href="tel:+34923402702">
+       📞 923 40 27 02
+      </a>
+     </div>
+    </div>
+   </section>
+   <!-- INGRESO -->
+   <section class="seccion fondo-arena" id="ingreso">
+    <div class="contenedor grid-dos">
+     <div>
+      <div class="etiqueta-seccion">
+       Ingreso
+      </div>
+      <h2 class="titulo">
+       Le orientamos paso a paso
+      </h2>
+      <p class="texto-destacado">
+       Para disponibilidad de plazas, documentación o requisitos de admisión, contacte directamente con la residencia. El equipo le informará de forma personalizada.
+      </p>
+     </div>
+     <div class="lista-comprobacion">
+      <div class="comprobacion">
+       <i>
+        1
+       </i>
+       <div>
+        <h3>
+         Solicite información
+        </h3>
+        <p>
+         Llamada o email para resolver dudas iniciales.
+        </p>
+       </div>
+      </div>
+      <div class="comprobacion">
+       <i>
+        2
+       </i>
+       <div>
+        <h3>
+         Conozca el centro
+        </h3>
+        <p>
+         Puede concertar visita para ver instalaciones y ambiente.
+        </p>
+       </div>
+      </div>
+      <div class="comprobacion">
+       <i>
+        3
+       </i>
+       <div>
+        <h3>
+         Proceso de admisión
+        </h3>
+        <p>
+         Información sobre documentación, disponibilidad y condiciones.
+        </p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <!-- CONTACTO -->
+   <section class="seccion fondo-oscuro" id="contacto">
+    <div class="contenedor">
+     <div style="text-align:center">
+      <div class="etiqueta-seccion">
+       Contacto
+      </div>
+      <h2 class="titulo">
+       Hablemos con calma
+      </h2>
+      <p class="texto-destacado" style="margin-left:auto;margin-right:auto">
+       Estamos en Calle Flamencos, 12, Béjar. Llámenos, escriba o abra la ubicación para llegar directamente.
+      </p>
+     </div>
+     <div class="contacto-grid">
+      <div class="contacto-caja">
+       <div class="contacto-fila">
+        <i>
+         📞
+        </i>
+        <div>
+         <b>
+          Teléfono
+         </b>
+         <a href="tel:+34923402702">
+          923 40 27 02
+         </a>
+        </div>
+       </div>
+       <div class="contacto-fila">
+        <i>
+         ✉️
+        </i>
+        <div>
+         <b>
+          Email
+         </b>
+         <a href="mailto:buenpastorbejar@gmail.com">
+          buenpastorbejar@gmail.com
+         </a>
+        </div>
+       </div>
+       <div class="contacto-fila">
+        <i>
+         📍
+        </i>
+        <div>
+         <b>
+          Dirección
+         </b>
+         <span>
+          Calle Flamencos, 12 · 37700 Béjar, Salamanca
+         </span>
+        </div>
+       </div>
+       <div style="display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1.4rem">
+        <a class="boton principal" href="tel:+34923402702">
+         Llamar
+        </a>
+        <a class="boton secundario" href="mailto:buenpastorbejar@gmail.com">
+         Enviar email
+        </a>
+       </div>
+      </div>
+      <div class="tarjeta-mapa">
+       <div class="marcador-mapa">
+        <div class="grande">
+         📍
+        </div>
+        <h3>
+         El Buen Pastor · Béjar
+        </h3>
+        <p>
+         Calle Flamencos, 12
+        </p>
+        <div style="display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap">
+         <a class="boton principal" href="https://maps.google.com/?q=Calle+Flamencos+12+Bejar+Salamanca" rel="noopener" target="_blank">
+          Abrir Google Maps
+         </a>
+         <a class="boton secundario" href="https://www.openstreetmap.org/search?query=Calle%20Flamencos%2012%20Bejar" rel="noopener" target="_blank">
+          OpenStreetMap
+         </a>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="preguntas-frecuentes">
+      <details>
+       <summary>
+        ¿Tiene plazas concertadas?
+       </summary>
+       <p>
+        La información pública del centro indica que no dispone de plazas concertadas. Conviene confirmar disponibilidad y condiciones directamente con la residencia.
+       </p>
+      </details>
+      <details>
+       <summary>
+        ¿La estancia es temporal o permanente?
+       </summary>
+       <p>
+        La residencia informa de estancias permanentes. Para casos concretos, contacte con el centro.
+       </p>
+      </details>
+      <details>
+       <summary>
+        ¿Puedo visitar la residencia antes de decidir?
+       </summary>
+       <p>
+        Sí, lo recomendable es llamar para concertar una visita y resolver dudas personalmente.
+       </p>
+      </details>
+     </div>
+    </div>
+   </section>
+  </main>
+  <!-- PIE DE PÁGINA -->
+  <footer>
+   <div class="contenedor pie-grid">
+    <div>
+     <h3>
+      Hogar Residencia El Buen Pastor
+     </h3>
+     <p>
+      Residencia de mayores en Béjar desde 1853. Entidad privada sin ánimo de lucro dedicada al cuidado y acompañamiento de personas mayores.
+     </p>
+    </div>
+    <div>
+     <h4>
+      Navegación
+     </h4>
+     <p>
+      <a href="#servicios">
+       Servicios
+      </a>
+      <br/>
+      <a href="#instalaciones">
+       Instalaciones
+      </a>
+      <br/>
+      <a href="#vida">
+       Vida diaria
+      </a>
+      <br/>
+      <a href="#contacto">
+       Contacto
+      </a>
+     </p>
+    </div>
+    <div>
+     <h4>
+      Contacto
+     </h4>
+     <p>
+      <a href="tel:+34923402702">
+       923 40 27 02
+      </a>
+      <br/>
+      <a href="mailto:buenpastorbejar@gmail.com">
+       buenpastorbejar@gmail.com
+      </a>
+      <br/>
+      C/ Flamencos, 12 · Béjar
+     </p>
+    </div>
+   </div>
+   <div class="contenedor" style="border-top:1px solid rgba(255,255,255,.08);margin-top:2rem;padding-top:1rem;font-size:.85rem">
+    ©
+    <span id="anioActual">
+    </span>
+    Hogar Residencia El Buen Pastor. Textos legales pendientes de completar con datos oficiales.
+   </div>
+  </footer>
+  <!-- BOTONES FLOTANTES -->
+  <div class="barra-flotante">
+   <a class="boton secundario" href="mailto:buenpastorbejar@gmail.com">
+    ✉️ Email
+   </a>
+   <a class="boton principal" href="tel:+34923402702">
+    📞 Llamar
+   </a>
+  </div>
+  <script>
+   // Año automático del pie de página.
+const elementoAnio = document.getElementById('anioActual');
+elementoAnio.textContent = new Date().getFullYear();
+
+// Menú móvil: abrir y cerrar al pulsar el botón.
+const botonMenu = document.getElementById('botonMenu');
+const navegacion = document.getElementById('navegacion');
+
+botonMenu.addEventListener('click', () => {
+  navegacion.classList.toggle('abierto');
+});
+
+// Cerrar el menú móvil al pulsar cualquier enlace.
+const enlacesMenu = document.querySelectorAll('.enlaces a');
+
+enlacesMenu.forEach((enlace) => {
+  enlace.addEventListener('click', () => {
+    navegacion.classList.remove('abierto');
+  });
+});
+  </script>
+ </body>
+</html>
