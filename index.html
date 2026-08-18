@@ -519,6 +519,7 @@ button{font-family:inherit}
 .foto-portada{
   position:relative;
   animation:escalaEntrada .9s var(--ease) .2s both;
+  perspective:900px;
 }
 .foto-portada .foto{
   border-radius:40px 130px 40px 40px;
@@ -527,6 +528,7 @@ button{font-family:inherit}
   aspect-ratio:4/4.6;
   background:#ddd;
   position:relative;
+  transition:transform .5s var(--ease);
 }
 .foto-portada .foto:after{
   content:"";
@@ -582,7 +584,8 @@ button{font-family:inherit}
 /* Decorative badge flotante */
 .badge-flotante{
   position:absolute;
-  top:1.5rem;right:-1rem;
+  top:1.5rem;right:1.2rem;
+  z-index:10;
   background:linear-gradient(135deg,#fff 0%,var(--verde-claro));
   border-radius:20px;
   padding:.9rem 1.1rem;
@@ -1351,6 +1354,178 @@ footer a:hover{color:white}
   display:inline-block;
   transition:all .3s;
 }
+
+/* ===============================
+   3D EFFECTS
+   =============================== */
+@keyframes flotar3d{
+  0%,100%{transform:translateZ(0) translateY(0) rotateX(0) rotateY(0)}
+  25%{transform:translateZ(20px) translateY(-10px) rotateX(2deg) rotateY(-3deg)}
+  50%{transform:translateZ(10px) translateY(-18px) rotateX(-1deg) rotateY(2deg)}
+  75%{transform:translateZ(25px) translateY(-8px) rotateX(1deg) rotateY(-1deg)}
+}
+
+/* 3D tilt wrapper for cards */
+.tilt-3d{
+  perspective:800px;
+  transform-style:preserve-3d;
+}
+.tilt-3d-inner{
+  transition:transform .4s var(--ease);
+  transform-style:preserve-3d;
+  will-change:transform;
+}
+
+/* Hero 3D floating shapes */
+.hero-3d-scene{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  perspective:1200px;
+  transform-style:preserve-3d;
+  z-index:0;
+  overflow:hidden;
+}
+.forma-3d{
+  position:absolute;
+  border-radius:24px;
+  transform-style:preserve-3d;
+  backface-visibility:hidden;
+}
+.forma-3d-1{
+  width:120px;height:120px;
+  top:12%;right:8%;
+  background:linear-gradient(135deg,rgba(49,83,59,.12),rgba(49,83,59,.04));
+  border:1px solid rgba(49,83,59,.1);
+  backdrop-filter:blur(6px);
+  animation:flotar3d 12s ease-in-out infinite;
+  border-radius:28px;
+  transform:rotateX(15deg) rotateY(-15deg);
+}
+.forma-3d-2{
+  width:80px;height:80px;
+  bottom:20%;left:4%;
+  background:linear-gradient(135deg,rgba(184,146,106,.14),rgba(184,146,106,.04));
+  border:1px solid rgba(184,146,106,.12);
+  backdrop-filter:blur(6px);
+  animation:flotar3d 15s ease-in-out 2s infinite reverse;
+  border-radius:50%;
+}
+.forma-3d-3{
+  width:60px;height:60px;
+  top:55%;right:15%;
+  background:linear-gradient(135deg,rgba(49,83,59,.08),rgba(255,255,255,.06));
+  border:1px solid rgba(49,83,59,.08);
+  animation:flotar3d 10s ease-in-out 1s infinite;
+  border-radius:16px;
+  transform:rotateX(-10deg) rotateY(20deg) rotateZ(15deg);
+}
+.forma-3d-4{
+  width:100px;height:100px;
+  top:8%;left:15%;
+  border:2px solid rgba(49,83,59,.08);
+  border-radius:50%;
+  animation:flotar3d 18s ease-in-out 3s infinite;
+}
+.forma-3d-ring{
+  width:160px;height:160px;
+  bottom:10%;right:22%;
+  border:2px solid rgba(184,146,106,.1);
+  border-radius:50%;
+  animation:rotarLento 30s linear infinite;
+}
+.forma-3d-ring:after{
+  content:"";
+  position:absolute;
+  top:10px;left:10px;right:10px;bottom:10px;
+  border:1px solid rgba(49,83,59,.06);
+  border-radius:50%;
+}
+
+/* 3D service cards */
+.tarjeta-3d{
+  transform-style:preserve-3d;
+  perspective:600px;
+}
+.tarjeta-3d .icono{
+  transform:translateZ(30px);
+  display:inline-block;
+}
+.tarjeta-3d h3{transform:translateZ(20px)}
+.tarjeta-3d p{transform:translateZ(10px)}
+
+/* 3D parallax on scroll for sections */
+.parallax-3d{
+  transform-style:preserve-3d;
+  perspective:1000px;
+}
+.parallax-3d-child{
+  transition:transform .6s var(--ease);
+}
+
+/* 3D stat cards in hero */
+.dato-confianza{
+  transform-style:preserve-3d;
+  perspective:400px;
+}
+.dato-confianza:hover{
+  transform:translateY(-6px) rotateX(4deg) rotateY(-3deg);
+}
+.dato-confianza strong{
+  transform:translateZ(12px);
+}
+
+/* 3D gallery tilt */
+.galeria figure{
+  transition:transform .5s var(--ease),box-shadow .5s var(--ease);
+  transform-style:preserve-3d;
+}
+.galeria figure:hover{
+  transform:scale(1.02) rotateY(-2deg) rotateX(1deg);
+  box-shadow:0 30px 60px rgba(26,20,16,.22);
+}
+
+/* 3D activity cards */
+.actividad{
+  transform-style:preserve-3d;
+  transition:transform .4s var(--ease),box-shadow .4s var(--ease);
+}
+.actividad:hover{
+  transform:scale(1.03) rotateY(3deg) rotateX(-2deg);
+  box-shadow:0 28px 56px rgba(26,20,16,.22);
+}
+
+/* 3D CTA */
+.llamada-accion{
+  transform-style:preserve-3d;
+  perspective:800px;
+}
+.llamada-accion:hover{
+  transform:rotateX(1deg) rotateY(-1deg);
+}
+
+/* 3D timeline dots pulse */
+.hito:before{
+  transition:all .3s var(--ease);
+}
+.hito:hover:before{
+  transform:translateY(-50%) scale(1.4);
+  box-shadow:0 0 0 6px rgba(49,83,59,.15);
+}
+
+/* 3D paso numbers */
+.paso .num-paso{
+  transform-style:preserve-3d;
+  transition:transform .3s var(--ease);
+}
+.paso:hover .num-paso{
+  transform:rotateY(180deg) scale(1.1);
+}
+
+/* Responsive hide 3D shapes */
+@media(max-width:920px){
+  .hero-3d-scene{display:none}
+}
   </style>
   <script type="application/ld+json">
    {"@context":"https://schema.org","@type":"LocalBusiness","name":"Hogar Residencia El Buen Pastor","description":"Residencia de mayores en Béjar desde 1853, entidad sin ánimo de lucro.","telephone":"+34 923 40 27 02","email":"buenpastorbejar@gmail.com","address":{"@type":"PostalAddress","streetAddress":"Calle Flamencos, 12","postalCode":"37700","addressLocality":"Béjar","addressRegion":"Salamanca","addressCountry":"ES"}}
@@ -1395,6 +1570,13 @@ footer a:hover{color:white}
    <!-- ===== HERO ===== -->
    <section class="portada" id="inicio">
     <div class="patron-dots"></div>
+    <div class="hero-3d-scene">
+     <div class="forma-3d forma-3d-1"></div>
+     <div class="forma-3d forma-3d-2"></div>
+     <div class="forma-3d forma-3d-3"></div>
+     <div class="forma-3d forma-3d-4"></div>
+     <div class="forma-3d forma-3d-ring"></div>
+    </div>
     <div class="contenedor portada-grid">
      <div>
       <span class="insignia">
@@ -1564,32 +1746,32 @@ footer a:hover{color:white}
       </p>
      </div>
      <div class="tarjetas">
-      <div class="tarjeta revelar revelar-retraso-1">
+      <div class="tarjeta tarjeta-3d revelar revelar-retraso-1" data-tilt>
        <div class="icono">🩺</div>
        <h3>Salud</h3>
        <p>Medicina general, enfermería, farmacia y seguimiento diario.</p>
       </div>
-      <div class="tarjeta revelar revelar-retraso-2">
+      <div class="tarjeta tarjeta-3d revelar revelar-retraso-2" data-tilt>
        <div class="icono">🦽</div>
        <h3>Rehabilitación</h3>
        <p>Fisioterapia, gimnasio y mantenimiento de la movilidad.</p>
       </div>
-      <div class="tarjeta revelar revelar-retraso-3">
+      <div class="tarjeta tarjeta-3d revelar revelar-retraso-3" data-tilt>
        <div class="icono">🧠</div>
        <h3>Terapia ocupacional</h3>
        <p>Estimulación cognitiva, talleres y actividades funcionales.</p>
       </div>
-      <div class="tarjeta revelar revelar-retraso-4">
+      <div class="tarjeta tarjeta-3d revelar revelar-retraso-4" data-tilt>
        <div class="icono">🥗</div>
        <h3>Nutrición</h3>
        <p>Cocina propia y dietas adaptadas a las necesidades de cada persona.</p>
       </div>
-      <div class="tarjeta revelar revelar-retraso-5">
+      <div class="tarjeta tarjeta-3d revelar revelar-retraso-5" data-tilt>
        <div class="icono">👥</div>
        <h3>Trabajo social</h3>
        <p>Orientación y apoyo a residentes y familiares en todo el proceso.</p>
       </div>
-      <div class="tarjeta revelar revelar-retraso-5">
+      <div class="tarjeta tarjeta-3d revelar revelar-retraso-5" data-tilt>
        <div class="icono">🎭</div>
        <h3>Ocio y comunidad</h3>
        <p>Biblioteca, sala multimedia, celebraciones, huerto y Coro Jovial.</p>
@@ -1919,6 +2101,42 @@ const contadorObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('.contador[data-objetivo]').forEach(el => {
   contadorObserver.observe(el);
 });
+
+/* ===== 3D TILT en tarjetas ===== */
+document.querySelectorAll('[data-tilt]').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateX = ((y - centerY) / centerY) * -8;
+    const rotateY = ((x - centerX) / centerX) * 8;
+    card.style.transform = `perspective(600px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+  });
+});
+
+/* ===== 3D tilt en foto del hero ===== */
+const fotoHero = document.querySelector('.foto-portada .foto');
+if(fotoHero){
+  const portada = document.querySelector('.foto-portada');
+  portada.addEventListener('mousemove', e => {
+    const rect = portada.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotX = ((y - centerY) / centerY) * -4;
+    const rotY = ((x - centerX) / centerX) * 4;
+    fotoHero.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+  });
+  portada.addEventListener('mouseleave', () => {
+    fotoHero.style.transform = '';
+  });
+}
   </script>
  </body>
 </html>
