@@ -1526,12 +1526,229 @@ footer a:hover{color:white}
 @media(max-width:920px){
   .hero-3d-scene{display:none}
 }
+
+/* ===============================
+   BARRA DE PROGRESO DE SCROLL
+   =============================== */
+.barra-progreso{
+  position:fixed;
+  top:0;left:0;
+  height:4px;
+  width:0%;
+  z-index:300;
+  background:linear-gradient(90deg,var(--verde),#5a8a60,var(--marron-claro));
+  background-size:200% auto;
+  animation:destello 3s linear infinite;
+  box-shadow:0 0 12px rgba(49,83,59,.5);
+  transition:width .1s linear;
+}
+
+/* ===============================
+   MESH GRADIENT ANIMADO (HERO)
+   =============================== */
+.mesh-gradiente{
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  overflow:hidden;
+  opacity:.7;
+}
+.mesh-blob{
+  position:absolute;
+  border-radius:50%;
+  filter:blur(60px);
+  mix-blend-mode:multiply;
+  opacity:.5;
+}
+.mesh-blob-1{
+  width:420px;height:420px;
+  top:-100px;right:5%;
+  background:radial-gradient(circle,rgba(120,180,120,.6),transparent 70%);
+  animation:meshMover1 18s ease-in-out infinite;
+}
+.mesh-blob-2{
+  width:360px;height:360px;
+  bottom:-80px;left:2%;
+  background:radial-gradient(circle,rgba(200,160,110,.5),transparent 70%);
+  animation:meshMover2 22s ease-in-out infinite;
+}
+.mesh-blob-3{
+  width:300px;height:300px;
+  top:40%;left:40%;
+  background:radial-gradient(circle,rgba(90,138,96,.4),transparent 70%);
+  animation:meshMover3 25s ease-in-out infinite;
+}
+@keyframes meshMover1{
+  0%,100%{transform:translate(0,0) scale(1)}
+  33%{transform:translate(-60px,40px) scale(1.15)}
+  66%{transform:translate(40px,-30px) scale(.9)}
+}
+@keyframes meshMover2{
+  0%,100%{transform:translate(0,0) scale(1)}
+  33%{transform:translate(50px,-40px) scale(1.1)}
+  66%{transform:translate(-30px,50px) scale(1.2)}
+}
+@keyframes meshMover3{
+  0%,100%{transform:translate(0,0) scale(1)}
+  50%{transform:translate(-50px,-40px) scale(1.25)}
+}
+
+/* ===============================
+   CANVAS DE PÉTALOS/HOJAS
+   =============================== */
+.lienzo-petalos{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+}
+
+/* ===============================
+   MARQUEE / TICKER
+   =============================== */
+.ticker{
+  background:linear-gradient(90deg,#1a1008,var(--verde),#1a1008);
+  color:#f4e8d6;
+  overflow:hidden;
+  padding:.9rem 0;
+  position:relative;
+  border-top:1px solid rgba(255,255,255,.08);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.ticker:before,.ticker:after{
+  content:"";
+  position:absolute;
+  top:0;bottom:0;
+  width:120px;
+  z-index:2;
+  pointer-events:none;
+}
+.ticker:before{left:0;background:linear-gradient(90deg,#1a1008,transparent)}
+.ticker:after{right:0;background:linear-gradient(270deg,#1a1008,transparent)}
+.ticker-pista{
+  display:flex;
+  width:max-content;
+  animation:desplazarTicker 32s linear infinite;
+}
+.ticker:hover .ticker-pista{animation-play-state:paused}
+.ticker-item{
+  display:inline-flex;
+  align-items:center;
+  gap:.7rem;
+  padding:0 2rem;
+  font-family:var(--fuente-titulos);
+  font-size:1.4rem;
+  font-weight:600;
+  white-space:nowrap;
+}
+.ticker-item .estrella{
+  color:var(--marron-claro);
+  font-size:1rem;
+  animation:rotarLento 8s linear infinite;
+  display:inline-block;
+}
+@keyframes desplazarTicker{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+
+/* ===============================
+   DIVISORES DE ONDAS
+   =============================== */
+.divisor-ondas{
+  position:relative;
+  width:100%;
+  height:80px;
+  overflow:hidden;
+  line-height:0;
+  margin-bottom:-1px;
+}
+.divisor-ondas svg{
+  position:absolute;
+  bottom:0;left:0;
+  width:200%;
+  height:100%;
+}
+.divisor-ondas .onda{
+  animation:moverOnda 14s ease-in-out infinite alternate;
+}
+.divisor-ondas .onda-2{
+  animation:moverOnda 10s ease-in-out infinite alternate-reverse;
+  opacity:.5;
+}
+@keyframes moverOnda{
+  from{transform:translateX(0)}
+  to{transform:translateX(-25%)}
+}
+.divisor-invertido{transform:rotate(180deg)}
+
+/* ===============================
+   REVELADO DE PALABRAS (H1)
+   =============================== */
+.palabra-revelar{
+  display:inline-block;
+  overflow:hidden;
+  vertical-align:top;
+  padding:.12em .04em;
+  margin:-.12em -.04em;
+}
+.palabra-revelar > span{
+  display:inline-block;
+  transform:translateY(115%);
+  animation:subirPalabra .85s var(--ease) forwards;
+}
+@keyframes subirPalabra{
+  to{transform:translateY(0)}
+}
+
+/* ===============================
+   SPOTLIGHT CURSOR (SECCIONES OSCURAS)
+   =============================== */
+.fondo-oscuro{position:relative}
+.spotlight{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+  opacity:0;
+  transition:opacity .4s;
+  background:radial-gradient(600px circle at var(--mx,50%) var(--my,50%),rgba(120,170,120,.1),transparent 60%);
+}
+.fondo-oscuro:hover .spotlight{opacity:1}
+.fondo-oscuro > .contenedor{position:relative;z-index:1}
+
+/* ===============================
+   BOTONES MAGNÉTICOS
+   =============================== */
+.magnetico{
+  transition:transform .2s var(--ease),box-shadow .3s var(--ease),background .3s;
+  will-change:transform;
+}
+
+/* ===============================
+   BORDE GRADIENTE ANIMADO (tarjeta destacada)
+   =============================== */
+@keyframes girarBorde{
+  to{transform:rotate(360deg)}
+}
+
+/* ===============================
+   scroll-reveal respeta prefers-reduced-motion
+   =============================== */
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}
+  .lienzo-petalos,.mesh-gradiente,.hero-3d-scene{display:none}
+}
   </style>
   <script type="application/ld+json">
    {"@context":"https://schema.org","@type":"LocalBusiness","name":"Hogar Residencia El Buen Pastor","description":"Residencia de mayores en Béjar desde 1853, entidad sin ánimo de lucro.","telephone":"+34 923 40 27 02","email":"buenpastorbejar@gmail.com","address":{"@type":"PostalAddress","streetAddress":"Calle Flamencos, 12","postalCode":"37700","addressLocality":"Béjar","addressRegion":"Salamanca","addressCountry":"ES"}}
   </script>
  </head>
  <body>
+
+  <!-- BARRA DE PROGRESO DE SCROLL -->
+  <div class="barra-progreso" id="barraProgreso"></div>
 
   <!-- BARRA SUPERIOR -->
   <div class="barra-superior">
@@ -1569,7 +1786,13 @@ footer a:hover{color:white}
   <main>
    <!-- ===== HERO ===== -->
    <section class="portada" id="inicio">
+    <div class="mesh-gradiente">
+     <div class="mesh-blob mesh-blob-1"></div>
+     <div class="mesh-blob mesh-blob-2"></div>
+     <div class="mesh-blob mesh-blob-3"></div>
+    </div>
     <div class="patron-dots"></div>
+    <canvas class="lienzo-petalos" id="lienzoPetalos"></canvas>
     <div class="hero-3d-scene">
      <div class="forma-3d forma-3d-1"></div>
      <div class="forma-3d forma-3d-2"></div>
@@ -1583,7 +1806,7 @@ footer a:hover{color:white}
        <span class="punto-vivo"></span>
        Hogar residencia · trato cercano
       </span>
-      <h1>
+      <h1 id="tituloHero">
        Un hogar seguro para quienes más
        <em>queremos</em>
       </h1>
@@ -1591,8 +1814,8 @@ footer a:hover{color:white}
        En El Buen Pastor cuidamos a personas mayores con atención integral, cocina propia, jardín, actividades y una trayectoria de más de 170 años al servicio de Béjar.
       </p>
       <div class="acciones-portada">
-       <a class="boton principal" href="tel:+34923402702">📞 Llamar ahora</a>
-       <a class="boton secundario" href="#contacto">Solicitar información</a>
+       <a class="boton principal magnetico" href="tel:+34923402702">📞 Llamar ahora</a>
+       <a class="boton secundario magnetico" href="#contacto">Solicitar información</a>
       </div>
       <div class="fila-confianza">
        <div class="dato-confianza">
@@ -1656,6 +1879,26 @@ footer a:hover{color:white}
      </div>
     </div>
    </section>
+
+   <!-- ===== TICKER / MARQUEE ===== -->
+   <div class="ticker" aria-hidden="true">
+    <div class="ticker-pista">
+     <span class="ticker-item">Cocina propia <span class="estrella">✦</span></span>
+     <span class="ticker-item">Jardín y aire libre <span class="estrella">✦</span></span>
+     <span class="ticker-item">Atención sanitaria 24 h <span class="estrella">✦</span></span>
+     <span class="ticker-item">Coro Jovial <span class="estrella">✦</span></span>
+     <span class="ticker-item">Fisioterapia <span class="estrella">✦</span></span>
+     <span class="ticker-item">Trato humano y familiar <span class="estrella">✦</span></span>
+     <span class="ticker-item">Desde 1853 <span class="estrella">✦</span></span>
+     <span class="ticker-item">Cocina propia <span class="estrella">✦</span></span>
+     <span class="ticker-item">Jardín y aire libre <span class="estrella">✦</span></span>
+     <span class="ticker-item">Atención sanitaria 24 h <span class="estrella">✦</span></span>
+     <span class="ticker-item">Coro Jovial <span class="estrella">✦</span></span>
+     <span class="ticker-item">Fisioterapia <span class="estrella">✦</span></span>
+     <span class="ticker-item">Trato humano y familiar <span class="estrella">✦</span></span>
+     <span class="ticker-item">Desde 1853 <span class="estrella">✦</span></span>
+    </div>
+   </div>
 
    <!-- ===== QUIÉNES SOMOS ===== -->
    <section class="seccion fondo-blanco" id="quienes">
@@ -1733,8 +1976,17 @@ footer a:hover{color:white}
     </div>
    </section>
 
+   <!-- ===== DIVISOR ONDAS ===== -->
+   <div class="divisor-ondas" style="background:var(--arena)" aria-hidden="true">
+    <svg viewBox="0 0 1200 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+     <path class="onda onda-2" fill="#211914" d="M0,40 C150,80 350,0 600,40 C850,80 1050,0 1200,40 L1200,80 L0,80 Z"></path>
+     <path class="onda" fill="#211914" d="M0,50 C200,20 400,70 600,50 C800,30 1000,70 1200,50 L1200,80 L0,80 Z"></path>
+    </svg>
+   </div>
+
    <!-- ===== SERVICIOS ===== -->
    <section class="seccion fondo-oscuro" id="servicios">
+    <div class="spotlight"></div>
     <div class="contenedor">
      <div style="text-align:center">
       <div class="etiqueta-seccion revelar" style="color:var(--marron-claro)">Servicios</div>
@@ -1920,8 +2172,17 @@ footer a:hover{color:white}
     </div>
    </section>
 
+   <!-- ===== DIVISOR ONDAS ===== -->
+   <div class="divisor-ondas" style="background:var(--arena)" aria-hidden="true">
+    <svg viewBox="0 0 1200 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+     <path class="onda onda-2" fill="#1a1008" d="M0,40 C150,80 350,0 600,40 C850,80 1050,0 1200,40 L1200,80 L0,80 Z"></path>
+     <path class="onda" fill="#1a1008" d="M0,50 C200,20 400,70 600,50 C800,30 1000,70 1200,50 L1200,80 L0,80 Z"></path>
+    </svg>
+   </div>
+
    <!-- ===== CONTACTO ===== -->
    <section class="seccion fondo-oscuro" id="contacto">
+    <div class="spotlight"></div>
     <div class="contenedor">
      <div style="text-align:center">
       <div class="etiqueta-seccion revelar" style="color:var(--marron-claro)">Contacto</div>
@@ -2137,6 +2398,143 @@ if(fotoHero){
     fotoHero.style.transform = '';
   });
 }
+
+/* ===== BARRA DE PROGRESO DE SCROLL ===== */
+const barraProgreso = document.getElementById('barraProgreso');
+window.addEventListener('scroll', () => {
+  const alturaScroll = document.documentElement.scrollHeight - window.innerHeight;
+  const progreso = (window.scrollY / alturaScroll) * 100;
+  barraProgreso.style.width = progreso + '%';
+}, {passive:true});
+
+/* ===== REVELADO PALABRA POR PALABRA (H1) ===== */
+const tituloHero = document.getElementById('tituloHero');
+if(tituloHero){
+  const em = tituloHero.querySelector('em');
+  const textoEm = em ? em.textContent : '';
+  const textoPlano = tituloHero.childNodes[0].textContent.trim();
+  const palabras = textoPlano.split(' ');
+  let html = '';
+  let retraso = 0;
+  palabras.forEach(p => {
+    html += `<span class="palabra-revelar"><span style="animation-delay:${retraso}s">${p}</span></span> `;
+    retraso += 0.09;
+  });
+  if(em){
+    html += `<span class="palabra-revelar"><span style="animation-delay:${retraso}s" class="em-revelar">${textoEm}</span></span>`;
+  }
+  tituloHero.innerHTML = html;
+  const emRevelar = tituloHero.querySelector('.em-revelar');
+  if(emRevelar){
+    emRevelar.style.background = 'linear-gradient(135deg,var(--verde) 0%,#5a8a60 60%,var(--marron-claro) 100%)';
+    emRevelar.style.webkitBackgroundClip = 'text';
+    emRevelar.style.backgroundClip = 'text';
+    emRevelar.style.webkitTextFillColor = 'transparent';
+    emRevelar.style.fontStyle = 'italic';
+  }
+}
+
+/* ===== SPOTLIGHT CURSOR EN SECCIONES OSCURAS ===== */
+document.querySelectorAll('.fondo-oscuro').forEach(seccion => {
+  seccion.addEventListener('mousemove', e => {
+    const rect = seccion.getBoundingClientRect();
+    const spot = seccion.querySelector('.spotlight');
+    if(spot){
+      spot.style.setProperty('--mx', (e.clientX - rect.left) + 'px');
+      spot.style.setProperty('--my', (e.clientY - rect.top) + 'px');
+    }
+  });
+});
+
+/* ===== BOTONES MAGNÉTICOS ===== */
+document.querySelectorAll('.magnetico').forEach(boton => {
+  boton.addEventListener('mousemove', e => {
+    const rect = boton.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    boton.style.transform = `translate(${x * 0.3}px, ${y * 0.4}px)`;
+  });
+  boton.addEventListener('mouseleave', () => {
+    boton.style.transform = '';
+  });
+});
+
+/* ===== CANVAS DE PÉTALOS / HOJAS CAYENDO ===== */
+(function(){
+  const canvas = document.getElementById('lienzoPetalos');
+  if(!canvas) return;
+  const prefiereReducido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(prefiereReducido) return;
+
+  const ctx = canvas.getContext('2d');
+  const portadaEl = document.getElementById('inicio');
+  let ancho, alto, petalos;
+  const colores = ['#7ba06a','#8fae70','#b8926a','#c9a86f','#6f8f63','#a7c088'];
+
+  function dimensionar(){
+    ancho = canvas.width = portadaEl.offsetWidth;
+    alto = canvas.height = portadaEl.offsetHeight;
+  }
+
+  function crearPetalo(){
+    const tam = 8 + Math.random() * 10;
+    return {
+      x: Math.random() * ancho,
+      y: Math.random() * -alto,
+      tam: tam,
+      color: colores[Math.floor(Math.random() * colores.length)],
+      velY: 0.5 + Math.random() * 1.2,
+      velX: (Math.random() - 0.5) * 0.8,
+      angulo: Math.random() * Math.PI * 2,
+      velAngulo: (Math.random() - 0.5) * 0.05,
+      oscilacion: Math.random() * 2,
+      faseOsc: Math.random() * Math.PI * 2,
+      opacidad: 0.4 + Math.random() * 0.4
+    };
+  }
+
+  function iniciar(){
+    dimensionar();
+    const cantidad = Math.min(28, Math.floor(ancho / 45));
+    petalos = Array.from({length: cantidad}, crearPetalo);
+  }
+
+  function dibujarPetalo(p){
+    ctx.save();
+    ctx.translate(p.x, p.y);
+    ctx.rotate(p.angulo);
+    ctx.globalAlpha = p.opacidad;
+    ctx.fillStyle = p.color;
+    ctx.beginPath();
+    ctx.ellipse(0, 0, p.tam, p.tam / 2, 0, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+  }
+
+  function animar(){
+    ctx.clearRect(0, 0, ancho, alto);
+    petalos.forEach(p => {
+      p.faseOsc += 0.02;
+      p.y += p.velY;
+      p.x += p.velX + Math.sin(p.faseOsc) * p.oscilacion * 0.3;
+      p.angulo += p.velAngulo;
+      if(p.y > alto + 20){
+        p.y = -20;
+        p.x = Math.random() * ancho;
+      }
+      dibujarPetalo(p);
+    });
+    requestAnimationFrame(animar);
+  }
+
+  iniciar();
+  animar();
+  let temporizador;
+  window.addEventListener('resize', () => {
+    clearTimeout(temporizador);
+    temporizador = setTimeout(iniciar, 200);
+  }, {passive:true});
+})();
   </script>
  </body>
 </html>
