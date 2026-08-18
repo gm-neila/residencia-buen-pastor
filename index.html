@@ -3,9 +3,7 @@
  <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <title>
-   Hogar Residencia El Buen Pastor | Residencia de mayores en Béjar
-  </title>
+  <title>Hogar Residencia El Buen Pastor | Residencia de mayores en Béjar</title>
   <meta content="Residencia de mayores en Béjar desde 1853. Entidad sin ánimo de lucro con 118 plazas, atención integral, cocina propia, jardín, actividades y trato cercano." name="description"/>
   <meta content="#31533b" name="theme-color"/>
   <meta content="Hogar Residencia El Buen Pastor | Béjar" property="og:title"/>
@@ -13,826 +11,1345 @@
   <meta content="website" property="og:type"/>
   <link href="https://fonts.googleapis.com" rel="preconnect"/>
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
   <style>
-   /* ===============================
-   VARIABLES: colores, fuentes y medidas
+/* ===============================
+   VARIABLES
    =============================== */
 :root{
   --verde:#31533b;
   --verde-secundario:#496d4f;
   --verde-claro:#dfeadd;
+  --verde-vivo:#3d7a4a;
   --crema:#fbf7ef;
   --arena:#eadfce;
   --marron:#694b36;
-  --texto:#211914;
-  --texto-suave:#70665f;
+  --marron-claro:#b8926a;
+  --texto:#1a1410;
+  --texto-suave:#6b5e54;
   --blanco:#fff;
-  --sombra:0 20px 55px rgba(31,25,20,.14);
-  --radio:26px;
+  --sombra:0 24px 60px rgba(26,20,16,.13);
+  --sombra-hover:0 32px 80px rgba(26,20,16,.2);
+  --sombra-verde:0 20px 50px rgba(49,83,59,.28);
+  --radio:28px;
+  --radio-xl:40px;
   --fuente-titulos:'Cormorant Garamond',Georgia,serif;
   --fuente-texto:'Inter',system-ui,sans-serif;
+  --dur:.65s;
+  --ease:cubic-bezier(.22,1,.36,1);
 }
+
 /* ===============================
-   RESET Y ESTILOS GENERALES
+   RESET
    =============================== */
-*{
-  box-sizing:border-box
-}
-html{
-  scroll-behavior:smooth
-}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
 body{
-  margin:0;
   background:var(--crema);
   color:var(--texto);
   font-family:var(--fuente-texto);
-  line-height:1.6
+  line-height:1.65;
+  overflow-x:hidden;
 }
-img{
-  max-width:100%;
-  display:block
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit}
+
+/* ===============================
+   KEYFRAMES
+   =============================== */
+@keyframes flotarA{
+  0%,100%{transform:translateY(0) rotate(0deg)}
+  50%{transform:translateY(-22px) rotate(4deg)}
 }
-a{
-  color:inherit;
-  text-decoration:none
+@keyframes flotarB{
+  0%,100%{transform:translateY(0) rotate(0deg)}
+  50%{transform:translateY(16px) rotate(-3deg)}
 }
-.contenedor{
-  width:min(1160px,92vw);
-  margin:auto
+@keyframes pulso{
+  0%,100%{box-shadow:0 0 0 0 rgba(49,83,59,.35)}
+  50%{box-shadow:0 0 0 14px rgba(49,83,59,0)}
 }
+@keyframes destello{
+  0%{background-position:200% center}
+  100%{background-position:-200% center}
+}
+@keyframes entrada{
+  from{opacity:0;transform:translateY(32px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes rotarLento{
+  from{transform:rotate(0deg)}
+  to{transform:rotate(360deg)}
+}
+@keyframes escalaEntrada{
+  from{opacity:0;transform:scale(.9)}
+  to{opacity:1;transform:scale(1)}
+}
+@keyframes deslizarDerecha{
+  from{opacity:0;transform:translateX(-24px)}
+  to{opacity:1;transform:translateX(0)}
+}
+@keyframes lineaCrecer{
+  from{height:0}
+  to{height:100%}
+}
+@keyframes parpadeo{
+  0%,100%{opacity:1}
+  50%{opacity:.6}
+}
+
+/* ===============================
+   UTILIDADES
+   =============================== */
+.contenedor{width:min(1160px,92vw);margin:auto}
+
 .etiqueta-seccion{
   display:inline-flex;
   gap:.55rem;
   align-items:center;
   color:var(--marron);
   font-weight:800;
-  font-size:.76rem;
-  letter-spacing:.13em;
-  text-transform:uppercase
+  font-size:.75rem;
+  letter-spacing:.15em;
+  text-transform:uppercase;
 }
 .etiqueta-seccion:before{
   content:"";
-  width:34px;
-  height:2px;
+  width:30px;height:2px;
   background:currentColor;
-  border-radius:5px
+  border-radius:5px;
 }
+
 .titulo{
   font-family:var(--fuente-titulos);
-  font-size:clamp(2.25rem,5vw,4rem);
-  line-height:.98;
-  margin:.65rem 0 0;
+  font-size:clamp(2.4rem,5vw,4.2rem);
+  line-height:.96;
+  margin:.7rem 0 0;
   font-weight:600;
-  letter-spacing:-.03em
+  letter-spacing:-.04em;
 }
 .titulo em{
   color:var(--verde);
-  font-style:italic
+  font-style:italic;
 }
+.titulo-degradado em{
+  background:linear-gradient(135deg,var(--verde) 0%,var(--marron-claro) 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
 .texto-destacado{
-  font-size:1.08rem;
+  font-size:1.1rem;
   color:var(--texto-suave);
-  max-width:680px
+  max-width:680px;
+  line-height:1.7;
 }
+
+/* ===============================
+   BOTONES
+   =============================== */
 .boton{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  gap:.55rem;
+  gap:.6rem;
   border-radius:999px;
-  padding:.95rem 1.35rem;
+  padding:1rem 1.5rem;
   font-weight:800;
+  font-size:.95rem;
   border:2px solid transparent;
-  transition:.2s;
-  cursor:pointer
+  transition:all .3s var(--ease);
+  cursor:pointer;
+  position:relative;
+  overflow:hidden;
 }
+.boton:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg,transparent 0%,rgba(255,255,255,.15) 50%,transparent 100%);
+  transform:translateX(-100%);
+  transition:transform .5s ease;
+}
+.boton:hover:before{transform:translateX(100%)}
+
 .boton.principal{
-  background:var(--verde);
+  background:linear-gradient(135deg,var(--verde),var(--verde-vivo));
   color:white;
-  box-shadow:0 10px 25px rgba(49,83,59,.25)
+  box-shadow:var(--sombra-verde);
 }
 .boton.principal:hover{
-  transform:translateY(-2px);
-  background:#243f2d
+  transform:translateY(-3px);
+  box-shadow:0 28px 60px rgba(49,83,59,.38);
 }
 .boton.secundario{
   background:white;
-  border-color:rgba(49,83,59,.25);
-  color:var(--verde)
+  border-color:rgba(49,83,59,.22);
+  color:var(--verde);
 }
 .boton.secundario:hover{
   border-color:var(--verde);
-  transform:translateY(-2px)
+  transform:translateY(-3px);
+  box-shadow:0 12px 30px rgba(49,83,59,.12);
 }
 .boton.claro{
   background:white;
-  color:var(--verde)
+  color:var(--verde);
+  font-weight:800;
 }
+.boton.claro:hover{
+  background:var(--crema);
+  transform:translateY(-3px);
+}
+
 /* ===============================
-   BARRA SUPERIOR Y MENÚ
+   SCROLL REVEAL
+   =============================== */
+.revelar{
+  opacity:0;
+  transform:translateY(36px);
+  transition:opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.revelar.desde-izquierda{transform:translateX(-36px)}
+.revelar.desde-derecha{transform:translateX(36px)}
+.revelar.escala{transform:scale(.94);opacity:0}
+.revelar.visible{
+  opacity:1;
+  transform:translateY(0) translateX(0) scale(1);
+}
+.revelar-retraso-1{transition-delay:.1s}
+.revelar-retraso-2{transition-delay:.2s}
+.revelar-retraso-3{transition-delay:.3s}
+.revelar-retraso-4{transition-delay:.4s}
+.revelar-retraso-5{transition-delay:.5s}
+
+/* ===============================
+   BARRA SUPERIOR
    =============================== */
 .barra-superior{
-  background:#221810;
-  color:#f4eadc;
-  font-size:.86rem
+  background:linear-gradient(90deg,#1a1008,#221810,#1a1008);
+  color:#f4e8d6;
+  font-size:.84rem;
+  position:relative;
+  overflow:hidden;
+}
+.barra-superior:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.04),transparent);
+  animation:destello 4s linear infinite;
+  background-size:200% auto;
 }
 .barra-superior .contenedor{
   display:flex;
   justify-content:space-between;
+  align-items:center;
   gap:1rem;
-  padding:.45rem 0;
-  flex-wrap:wrap
+  padding:.5rem 0;
+  flex-wrap:wrap;
+  position:relative;z-index:1;
 }
+.barra-superior a{
+  color:rgba(244,232,214,.85);
+  transition:color .2s;
+}
+.barra-superior a:hover{color:#fff}
+
+/* ===============================
+   NAV
+   =============================== */
 .navegacion{
   position:sticky;
   top:0;
-  z-index:50;
-  background:rgba(251,247,239,.92);
-  backdrop-filter:blur(14px);
-  border-bottom:1px solid rgba(105,75,54,.12)
+  z-index:100;
+  background:rgba(251,247,239,.88);
+  backdrop-filter:blur(20px) saturate(1.6);
+  -webkit-backdrop-filter:blur(20px) saturate(1.6);
+  border-bottom:1px solid rgba(105,75,54,.1);
+  transition:box-shadow .3s;
+}
+.navegacion.con-sombra{
+  box-shadow:0 8px 32px rgba(26,20,16,.1);
 }
 .navegacion-interior{
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:1rem;
-  padding:.85rem 0
+  padding:.9rem 0;
 }
 .marca{
   display:flex;
   align-items:center;
-  gap:.8rem
+  gap:.9rem;
+  transition:transform .3s var(--ease);
 }
+.marca:hover{transform:scale(1.02)}
+
 .logo-marca{
-  width:48px;
-  height:48px;
+  width:50px;height:50px;
   border-radius:16px;
-  background:linear-gradient(135deg,var(--verde),#6f8f63);
+  background:linear-gradient(135deg,var(--verde) 0%,#5a8a60 100%);
   color:white;
   display:grid;
   place-items:center;
   font-family:var(--fuente-titulos);
   font-size:1.55rem;
   font-weight:700;
-  box-shadow:0 10px 22px rgba(49,83,59,.25)
+  box-shadow:0 8px 20px rgba(49,83,59,.3);
+  position:relative;
+  overflow:hidden;
+  transition:box-shadow .3s;
 }
+.logo-marca:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,.18),transparent);
+}
+.logo-marca:hover{box-shadow:0 12px 30px rgba(49,83,59,.4)}
+
 .marca strong{
   display:block;
   font-family:var(--fuente-titulos);
-  font-size:1.45rem;
+  font-size:1.5rem;
   line-height:1;
-  color:var(--verde)
+  color:var(--verde);
 }
 .marca span{
   display:block;
-  font-size:.72rem;
+  font-size:.71rem;
   text-transform:uppercase;
-  letter-spacing:.13em;
+  letter-spacing:.14em;
   color:var(--texto-suave);
-  font-weight:800
+  font-weight:700;
 }
+
 .enlaces{
   display:flex;
-  gap:1.15rem;
-  align-items:center
+  gap:1.2rem;
+  align-items:center;
 }
 .enlaces a:not(.boton){
   font-size:.88rem;
   font-weight:700;
-  color:#43372f;
-  opacity:.8
+  color:#4a3e35;
+  position:relative;
+  padding-bottom:2px;
 }
-.enlaces a:hover{
-  opacity:1;
-  color:var(--verde)
+.enlaces a:not(.boton):after{
+  content:"";
+  position:absolute;
+  bottom:-2px;left:0;right:0;
+  height:2px;
+  background:var(--verde);
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .3s var(--ease);
+  border-radius:2px;
 }
+.enlaces a:not(.boton):hover{color:var(--verde)}
+.enlaces a:not(.boton):hover:after{transform:scaleX(1)}
+
 .boton-menu{
   display:none;
   background:transparent;
   border:0;
-  font-size:1.9rem;
-  color:var(--verde)
+  font-size:1.8rem;
+  color:var(--verde);
+  cursor:pointer;
+  padding:.3rem;
+  border-radius:10px;
+  transition:background .2s;
 }
+.boton-menu:hover{background:var(--verde-claro)}
+
 /* ===============================
-   PORTADA / HERO
+   HERO / PORTADA
    =============================== */
 .portada{
   position:relative;
   overflow:hidden;
-  padding:clamp(3rem,7vw,6rem) 0;
-  background:radial-gradient(circle at 82% 20%,#d7e7d1 0,transparent 34%),linear-gradient(180deg,#fffaf1 0%,#f5ecdd 100%)
+  padding:clamp(4rem,8vw,7rem) 0;
+  background:
+    radial-gradient(ellipse 70% 80% at 110% -10%,rgba(100,180,100,.18) 0,transparent 60%),
+    radial-gradient(ellipse 50% 60% at -10% 110%,rgba(180,140,90,.15) 0,transparent 55%),
+    linear-gradient(170deg,#fffcf5 0%,#f7eddb 55%,#efe0c6 100%);
 }
+
+/* Orbe decorativo 1 */
 .portada:before{
   content:"";
   position:absolute;
+  width:600px;height:600px;
+  top:-200px;right:-150px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(49,83,59,.07) 0,transparent 70%);
+  animation:flotarA 9s ease-in-out infinite;
+  pointer-events:none;
+}
+/* Orbe decorativo 2 */
+.portada:after{
+  content:"";
+  position:absolute;
+  width:400px;height:400px;
+  bottom:-120px;left:5%;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(105,75,54,.06) 0,transparent 70%);
+  animation:flotarB 11s ease-in-out infinite;
+  pointer-events:none;
+}
+
+.patron-dots{
+  position:absolute;
   inset:0;
-  background-image:radial-gradient(rgba(49,83,59,.12) 1px,transparent 1px);
-  background-size:34px 34px;
-  opacity:.45
+  background-image:radial-gradient(rgba(49,83,59,.09) 1.5px,transparent 1.5px);
+  background-size:36px 36px;
+  opacity:.5;
+  pointer-events:none;
 }
+
 .portada-grid{
-  position:relative;
+  position:relative;z-index:1;
   display:grid;
-  grid-template-columns:1.02fr .98fr;
-  gap:clamp(2rem,5vw,4.5rem);
-  align-items:center
+  grid-template-columns:1.1fr .9fr;
+  gap:clamp(2rem,5vw,5rem);
+  align-items:center;
 }
+
 .insignia{
   display:inline-flex;
   align-items:center;
-  gap:.5rem;
+  gap:.6rem;
   background:var(--verde-claro);
   color:var(--verde);
-  padding:.45rem .85rem;
+  padding:.5rem 1rem;
   border-radius:999px;
   font-size:.75rem;
   font-weight:900;
   text-transform:uppercase;
-  letter-spacing:.08em
+  letter-spacing:.1em;
+  border:1px solid rgba(49,83,59,.15);
+  animation:entrada .6s var(--ease) both;
 }
+.insignia .punto-vivo{
+  width:8px;height:8px;
+  background:var(--verde);
+  border-radius:50%;
+  animation:parpadeo 2s ease-in-out infinite;
+  display:inline-block;
+}
+
 .portada h1{
   font-family:var(--fuente-titulos);
-  font-size:clamp(3rem,6vw,5.4rem);
-  line-height:.92;
-  margin:1rem 0 1.1rem;
+  font-size:clamp(3.2rem,7vw,6rem);
+  line-height:.9;
+  margin:.9rem 0 1.2rem;
   font-weight:700;
-  letter-spacing:-.045em
+  letter-spacing:-.05em;
+  animation:entrada .7s var(--ease) .1s both;
 }
 .portada h1 em{
   font-style:italic;
-  color:var(--verde)
+  background:linear-gradient(135deg,var(--verde) 0%,#5a8a60 60%,var(--marron-claro) 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
 }
+
 .portada p{
-  font-size:1.18rem;
-  color:#62584f;
-  max-width:660px
+  font-size:1.2rem;
+  color:#635549;
+  max-width:620px;
+  line-height:1.7;
+  animation:entrada .7s var(--ease) .2s both;
 }
+
 .acciones-portada{
   display:flex;
-  gap:.85rem;
+  gap:1rem;
   flex-wrap:wrap;
-  margin:1.8rem 0
+  margin:2rem 0;
+  animation:entrada .7s var(--ease) .3s both;
 }
+.acciones-portada .boton.principal{
+  animation:pulso 3s ease-in-out 2s infinite;
+}
+
 .fila-confianza{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:.8rem;
-  margin-top:1.7rem;
-  max-width:720px
+  gap:.85rem;
+  margin-top:2rem;
+  max-width:680px;
+  animation:entrada .7s var(--ease) .4s both;
 }
 .dato-confianza{
-  background:rgba(255,255,255,.72);
-  border:1px solid rgba(105,75,54,.13);
-  border-radius:18px;
-  padding:1rem;
-  box-shadow:0 8px 20px rgba(31,25,20,.06)
+  background:rgba(255,255,255,.8);
+  border:1px solid rgba(105,75,54,.12);
+  border-radius:20px;
+  padding:1.2rem 1rem;
+  box-shadow:0 6px 20px rgba(26,20,16,.06);
+  transition:all .3s var(--ease);
+  backdrop-filter:blur(8px);
+}
+.dato-confianza:hover{
+  transform:translateY(-4px);
+  box-shadow:0 16px 40px rgba(26,20,16,.12);
+  border-color:rgba(49,83,59,.25);
 }
 .dato-confianza strong{
   display:block;
   font-family:var(--fuente-titulos);
-  font-size:1.45rem;
+  font-size:1.7rem;
   color:var(--verde);
-  line-height:1
+  line-height:1;
+  font-weight:700;
 }
 .dato-confianza small{
   font-weight:700;
-  color:var(--texto-suave)
+  color:var(--texto-suave);
+  font-size:.82rem;
 }
+
+/* Hero image */
 .foto-portada{
-  position:relative
+  position:relative;
+  animation:escalaEntrada .9s var(--ease) .2s both;
 }
 .foto-portada .foto{
-  border-radius:34px 120px 34px 34px;
+  border-radius:40px 130px 40px 40px;
   overflow:hidden;
-  box-shadow:var(--sombra);
-  aspect-ratio:4/4.5;
-  background:#ddd
+  box-shadow:0 40px 80px rgba(26,20,16,.18);
+  aspect-ratio:4/4.6;
+  background:#ddd;
+  position:relative;
+}
+.foto-portada .foto:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to bottom,transparent 55%,rgba(26,20,16,.25));
+  pointer-events:none;
 }
 .foto-portada img{
-  width:100%;
-  height:100%;
-  object-fit:cover
+  width:100%;height:100%;
+  object-fit:cover;
+  transition:transform 8s ease;
 }
+.foto-portada:hover img{transform:scale(1.03)}
+
 .tarjeta-rapida{
   position:absolute;
-  left:-1.2rem;
-  bottom:1.4rem;
-  background:white;
-  border-radius:22px;
-  padding:1.1rem 1.25rem;
-  box-shadow:var(--sombra);
-  max-width:270px
+  left:-1.4rem;bottom:1.6rem;
+  background:rgba(255,255,255,.95);
+  backdrop-filter:blur(16px);
+  border-radius:24px;
+  padding:1.2rem 1.4rem;
+  box-shadow:0 24px 60px rgba(26,20,16,.16);
+  max-width:280px;
+  border:1px solid rgba(255,255,255,.8);
+  animation:deslizarDerecha .9s var(--ease) .6s both;
+}
+.tarjeta-rapida .chip{
+  background:var(--verde-claro);
+  color:var(--verde);
+  border-radius:999px;
+  padding:.3rem .7rem;
+  font-size:.72rem;
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  display:inline-block;
+  margin-bottom:.5rem;
 }
 .tarjeta-rapida strong{
   display:block;
   color:var(--verde);
-  font-size:1.05rem
+  font-size:1.05rem;
+  line-height:1.2;
 }
 .tarjeta-rapida span{
-  font-size:.9rem;
-  color:var(--texto-suave)
+  font-size:.88rem;
+  color:var(--texto-suave);
+  display:block;
+  margin-top:.3rem;
 }
+
+/* Decorative badge flotante */
+.badge-flotante{
+  position:absolute;
+  top:1.5rem;right:-1rem;
+  background:linear-gradient(135deg,#fff 0%,var(--verde-claro));
+  border-radius:20px;
+  padding:.9rem 1.1rem;
+  box-shadow:var(--sombra);
+  text-align:center;
+  border:1px solid rgba(255,255,255,.8);
+  animation:flotarA 7s ease-in-out 1s infinite;
+}
+.badge-flotante .num{
+  display:block;
+  font-family:var(--fuente-titulos);
+  font-size:1.8rem;
+  font-weight:700;
+  color:var(--verde);
+  line-height:1;
+}
+.badge-flotante .txt{
+  font-size:.72rem;
+  font-weight:800;
+  color:var(--verde-secundario);
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+
 /* ===============================
-   FRANJA DE DATOS DESTACADOS
+   FRANJA
    =============================== */
 .franja{
-  background:var(--verde);
-  color:white
+  background:linear-gradient(135deg,#243d2b 0%,var(--verde) 50%,#2e5036 100%);
+  color:white;
+  position:relative;
+  overflow:hidden;
+}
+.franja:before{
+  content:"";
+  position:absolute;inset:0;
+  background:repeating-linear-gradient(45deg,rgba(255,255,255,.02) 0 2px,transparent 2px 20px);
 }
 .franja-grid{
   display:grid;
   grid-template-columns:repeat(5,1fr);
-  gap:1px;
-  background:rgba(255,255,255,.18)
+  position:relative;z-index:1;
 }
 .franja .elemento{
-  padding:1.3rem 1rem;
+  padding:1.6rem 1rem;
   text-align:center;
-  background:var(--verde)
+  border-right:1px solid rgba(255,255,255,.1);
+  transition:background .3s;
+  cursor:default;
 }
+.franja .elemento:last-child{border-right:0}
+.franja .elemento:hover{background:rgba(255,255,255,.07)}
+.franja .elemento .icono-franja{
+  font-size:1.7rem;
+  margin-bottom:.4rem;
+  display:block;
+  transition:transform .3s var(--ease);
+}
+.franja .elemento:hover .icono-franja{transform:scale(1.2) translateY(-3px)}
 .franja b{
   display:block;
   font-family:var(--fuente-titulos);
-  font-size:1.25rem
+  font-size:1.2rem;
+  line-height:1.1;
 }
-.franja small{
-  opacity:.8
-}
+.franja small{opacity:.75;font-size:.82rem}
+
 /* ===============================
-   SECCIONES GENERALES
+   SECCIONES
    =============================== */
-.seccion{
-  padding:clamp(4rem,7vw,6.5rem) 0
-}
-.fondo-blanco{
-  background:white
-}
-.fondo-arena{
-  background:var(--arena)
-}
+.seccion{padding:clamp(5rem,8vw,7.5rem) 0}
+.fondo-blanco{background:#fff}
+.fondo-arena{background:var(--arena)}
 .fondo-oscuro{
-  background:#211914;
-  color:#f8efe3
+  background:linear-gradient(160deg,#1a1008 0%,#211914 60%,#1e160e 100%);
+  color:#f8ede0;
 }
-.fondo-oscuro .titulo{
-  color:#f8efe3
-}
-.fondo-oscuro .texto-destacado,.fondo-oscuro p{
-  color:rgba(248,239,227,.74)
-}
+.fondo-oscuro .titulo{color:#f8ede0}
+.fondo-oscuro .texto-destacado,.fondo-oscuro p{color:rgba(248,237,224,.72)}
+
 .grid-dos{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:clamp(2rem,5vw,4.5rem);
-  align-items:center
+  gap:clamp(2rem,5vw,5rem);
+  align-items:center;
 }
 .tarjeta-imagen{
   border-radius:var(--radio);
   overflow:hidden;
   box-shadow:var(--sombra);
-  background:white
+  position:relative;
+}
+.tarjeta-imagen:after{
+  content:"";
+  position:absolute;inset:0;
+  background:linear-gradient(to bottom,transparent 60%,rgba(26,20,16,.2));
 }
 .tarjeta-imagen img{
-  width:100%;
-  height:100%;
+  width:100%;height:100%;
   object-fit:cover;
-  aspect-ratio:4/3
+  aspect-ratio:4/3;
+  transition:transform .8s var(--ease);
 }
+.tarjeta-imagen:hover img{transform:scale(1.04)}
+
+/* Checklist */
 .lista-comprobacion{
   display:grid;
-  gap:.9rem;
-  margin-top:1.4rem
+  gap:1rem;
+  margin-top:1.5rem;
 }
 .comprobacion{
   display:flex;
-  gap:.9rem;
+  gap:1rem;
   align-items:flex-start;
   background:#fff;
-  border:1px solid rgba(105,75,54,.12);
-  border-radius:20px;
-  padding:1rem
+  border:1px solid rgba(105,75,54,.1);
+  border-radius:22px;
+  padding:1.1rem;
+  box-shadow:0 4px 16px rgba(26,20,16,.05);
+  transition:all .3s var(--ease);
+}
+.comprobacion:hover{
+  transform:translateX(4px);
+  box-shadow:0 8px 28px rgba(49,83,59,.1);
+  border-color:rgba(49,83,59,.2);
 }
 .comprobacion i{
   font-style:normal;
-  background:var(--verde-claro);
+  background:linear-gradient(135deg,var(--verde-claro),#c5ddc0);
   color:var(--verde);
-  width:34px;
-  height:34px;
+  width:36px;height:36px;
   display:grid;
   place-items:center;
   border-radius:12px;
   font-weight:900;
-  flex:0 0 auto
+  flex:0 0 auto;
+  font-size:1rem;
 }
-.comprobacion h3{
-  margin:0;
-  font-size:1.03rem
-}
-.comprobacion p{
-  margin:.15rem 0 0;
-  color:var(--texto-suave);
-  font-size:.94rem
-}
+.comprobacion h3{margin:0;font-size:1.02rem;line-height:1.3}
+.comprobacion p{margin:.2rem 0 0;color:var(--texto-suave);font-size:.92rem}
+
+/* ===============================
+   TARJETAS
+   =============================== */
 .tarjetas{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:1rem;
-  margin-top:2rem
+  gap:1.1rem;
+  margin-top:2rem;
 }
 .tarjeta{
-  background:white;
-  border:1px solid rgba(105,75,54,.12);
-  border-radius:24px;
-  padding:1.35rem;
-  box-shadow:0 10px 25px rgba(31,25,20,.05)
-}
-.fondo-oscuro .tarjeta{
   background:rgba(255,255,255,.06);
-  border-color:rgba(255,255,255,.1)
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:26px;
+  padding:1.6rem;
+  transition:all .35s var(--ease);
+  position:relative;
+  overflow:hidden;
 }
+.tarjeta:before{
+  content:"";
+  position:absolute;
+  top:0;left:0;right:0;
+  height:3px;
+  background:linear-gradient(90deg,var(--verde),var(--marron-claro));
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .4s var(--ease);
+}
+.tarjeta:hover{
+  transform:translateY(-6px);
+  box-shadow:0 30px 70px rgba(0,0,0,.2);
+  border-color:rgba(255,255,255,.18);
+}
+.tarjeta:hover:before{transform:scaleX(1)}
+
+.fondo-oscuro .tarjeta{
+  background:rgba(255,255,255,.05);
+  border-color:rgba(255,255,255,.09);
+}
+/* Tarjetas de instalaciones (fondo claro) */
+.seccion:not(.fondo-oscuro) .tarjeta{
+  background:white;
+  border-color:rgba(105,75,54,.1);
+  box-shadow:0 6px 24px rgba(26,20,16,.05);
+}
+.seccion:not(.fondo-oscuro) .tarjeta:hover{
+  box-shadow:0 24px 60px rgba(49,83,59,.12);
+  border-color:rgba(49,83,59,.2);
+}
+
 .tarjeta .icono{
-  font-size:1.7rem
+  font-size:1.8rem;
+  margin-bottom:.6rem;
+  display:inline-block;
+  transition:transform .3s var(--ease);
 }
+.tarjeta:hover .icono{transform:scale(1.15) rotate(-5deg)}
+
 .tarjeta h3{
   font-family:var(--fuente-titulos);
-  font-size:1.45rem;
-  margin:.45rem 0 .25rem
+  font-size:1.5rem;
+  margin:.4rem 0 .3rem;
+  line-height:1.1;
 }
-.tarjeta p{
-  margin:0;
-  color:var(--texto-suave)
-}
-.fondo-oscuro .tarjeta p{
-  color:rgba(248,239,227,.68)
-}
+.tarjeta p{margin:0;color:rgba(248,237,224,.68);font-size:.94rem}
+.seccion:not(.fondo-oscuro) .tarjeta p{color:var(--texto-suave)}
+
 /* ===============================
-   HISTORIA Y LÍNEA DE TIEMPO
+   HISTORIA / TIMELINE
    =============================== */
-.linea-tiempo{
-  display:grid;
-  gap:.75rem;
-  margin-top:1.5rem
+.timeline-wrap{
+  position:relative;
+  padding-left:2.5rem;
+  margin-top:2rem;
 }
+.timeline-wrap:before{
+  content:"";
+  position:absolute;
+  left:.85rem;top:0;
+  width:2px;
+  height:0;
+  background:linear-gradient(to bottom,var(--verde),var(--marron-claro));
+  border-radius:2px;
+  transition:height 1.5s var(--ease);
+}
+.timeline-wrap.visible:before{height:100%}
+
 .hito{
-  display:grid;
-  grid-template-columns:92px 1fr;
-  gap:1rem;
-  background:rgba(255,255,255,.65);
+  display:flex;
+  gap:1.4rem;
+  margin-bottom:1.2rem;
+  position:relative;
+  background:rgba(255,255,255,.7);
   border:1px solid rgba(105,75,54,.12);
-  border-radius:20px;
-  padding:1rem
+  border-radius:22px;
+  padding:1.1rem 1.2rem;
+  backdrop-filter:blur(8px);
+  transition:all .3s var(--ease);
+}
+.hito:last-child{margin-bottom:0}
+.hito:before{
+  content:"";
+  position:absolute;
+  left:-1.65rem;top:50%;
+  transform:translateY(-50%);
+  width:12px;height:12px;
+  background:var(--verde);
+  border-radius:50%;
+  border:3px solid var(--arena);
+  box-shadow:0 0 0 3px rgba(49,83,59,.2);
+}
+.hito:hover{
+  transform:translateX(4px);
+  box-shadow:0 8px 28px rgba(105,75,54,.1);
+  border-color:rgba(105,75,54,.2);
 }
 .hito b{
   font-family:var(--fuente-titulos);
-  font-size:1.5rem;
-  color:var(--verde)
+  font-size:1.6rem;
+  color:var(--verde);
+  font-weight:700;
+  flex:0 0 auto;
+  line-height:1;
+  align-self:center;
 }
-.hito p{
-  margin:0;
-  color:var(--texto-suave)
-}
+.hito p{margin:0;color:var(--texto-suave);font-size:.95rem}
+
 /* ===============================
-   GALERÍA, INSTALACIONES Y ACTIVIDADES
+   GALERÍA
    =============================== */
 .galeria{
   display:grid;
-  grid-template-columns:1.3fr 1fr 1fr;
-  gap:1rem;
-  margin-top:2rem
+  grid-template-columns:1.35fr 1fr 1fr;
+  gap:1.1rem;
+  margin-top:2.5rem;
 }
 .galeria figure{
   margin:0;
   position:relative;
   overflow:hidden;
-  border-radius:26px;
-  box-shadow:0 12px 30px rgba(31,25,20,.12);
-  background:#ddd
+  border-radius:28px;
+  box-shadow:0 16px 40px rgba(26,20,16,.14);
+  background:#ddd;
+  cursor:pointer;
 }
-.galeria figure:first-child{
-  grid-row:span 2
-}
+.galeria figure:first-child{grid-row:span 2}
 .galeria img{
-  width:100%;
-  height:100%;
+  width:100%;height:100%;
   object-fit:cover;
-  aspect-ratio:1.15/1
+  aspect-ratio:1.15/1;
+  transition:transform .7s var(--ease);
+  display:block;
 }
-.galeria figure:first-child img{
-  aspect-ratio:1/1.45
-}
+.galeria figure:first-child img{aspect-ratio:1/1.5}
+.galeria figure:hover img{transform:scale(1.06)}
+
 .galeria figcaption{
   position:absolute;
-  left:.8rem;
-  right:.8rem;
-  bottom:.8rem;
-  background:rgba(33,25,20,.78);
+  left:.85rem;right:.85rem;bottom:.85rem;
+  background:rgba(26,20,16,.8);
   color:white;
-  border-radius:18px;
-  padding:.75rem .9rem;
-  font-weight:900;
-  backdrop-filter:blur(8px)
+  border-radius:16px;
+  padding:.75rem 1rem;
+  font-weight:700;
+  font-size:.88rem;
+  backdrop-filter:blur(12px);
+  transform:translateY(4px);
+  opacity:.9;
+  transition:all .3s var(--ease);
 }
+.galeria figure:hover figcaption{
+  transform:translateY(0);
+  opacity:1;
+  background:rgba(49,83,59,.9);
+}
+
+/* ===============================
+   HABITACIONES / ETIQUETAS
+   =============================== */
 .plantas-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:1rem;
-  margin-top:2rem
+  gap:1.1rem;
+  margin-top:1.5rem;
 }
 .lista-etiquetas{
-  display:flex;
-  flex-wrap:wrap;
-  gap:.6rem;
-  margin-top:1rem
+  display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1rem;
 }
 .etiqueta{
-  background:white;
-  color:#3a302a;
-  border:1px solid rgba(105,75,54,.13);
+  background:var(--verde-claro);
+  color:var(--verde);
   border-radius:999px;
-  padding:.55rem .8rem;
-  font-weight:700;
-  font-size:.9rem
+  padding:.5rem .9rem;
+  font-weight:700;font-size:.87rem;
+  transition:all .2s;
+  border:1px solid transparent;
 }
+.etiqueta:hover{
+  background:var(--verde);
+  color:white;
+}
+
+/* ===============================
+   ACTIVIDADES
+   =============================== */
 .actividades-grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:1rem;
-  margin-top:2rem
+  gap:1.1rem;
+  margin-top:2.5rem;
 }
 .actividad{
   position:relative;
-  border-radius:24px;
+  border-radius:26px;
   overflow:hidden;
-  box-shadow:0 12px 30px rgba(31,25,20,.12)
+  box-shadow:0 14px 36px rgba(26,20,16,.13);
+  cursor:pointer;
 }
 .actividad img{
-  width:100%;
-  height:100%;
+  width:100%;height:100%;
   object-fit:cover;
-  aspect-ratio:1/1
+  aspect-ratio:1/1.1;
+  transition:transform .7s var(--ease);
+  display:block;
 }
+.actividad:hover img{transform:scale(1.08)}
+
+.actividad:after{
+  content:"";
+  position:absolute;inset:0;
+  background:linear-gradient(to bottom,transparent 40%,rgba(26,20,16,.6));
+  transition:opacity .3s;
+}
+.actividad:hover:after{opacity:.8}
+
 .actividad span{
   position:absolute;
-  left:.75rem;
-  right:.75rem;
-  bottom:.75rem;
-  background:rgba(255,255,255,.9);
+  left:.8rem;right:.8rem;bottom:.8rem;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(10px);
   border-radius:999px;
-  padding:.55rem .75rem;
+  padding:.6rem .9rem;
   font-weight:900;
   text-align:center;
-  color:var(--verde)
+  color:var(--verde);
+  font-size:.9rem;
+  z-index:1;
+  transition:all .3s var(--ease);
 }
-.llamada-accion{
-  background:linear-gradient(135deg,var(--verde),var(--marron));
+.actividad:hover span{
+  background:var(--verde);
   color:white;
-  border-radius:34px;
-  padding:clamp(1.7rem,4vw,3rem);
+  transform:translateY(-2px);
+}
+
+/* ===============================
+   CTA LLAMADA A ACCIÓN
+   =============================== */
+.llamada-accion{
+  background:linear-gradient(135deg,var(--verde) 0%,#2a4d31 40%,var(--marron) 100%);
+  color:white;
+  border-radius:36px;
+  padding:clamp(2rem,4vw,3.5rem);
   display:grid;
   grid-template-columns:1fr auto;
   gap:2rem;
   align-items:center;
-  margin-top:2rem;
-  box-shadow:var(--sombra)
+  margin-top:2.5rem;
+  box-shadow:var(--sombra-verde);
+  position:relative;
+  overflow:hidden;
+}
+.llamada-accion:before{
+  content:"";
+  position:absolute;
+  width:500px;height:500px;
+  top:-200px;right:-100px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.08),transparent 70%);
+  animation:rotarLento 20s linear infinite;
+}
+.llamada-accion:after{
+  content:"";
+  position:absolute;
+  width:300px;height:300px;
+  bottom:-100px;left:10%;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.05),transparent 70%);
 }
 .llamada-accion h2{
   font-family:var(--fuente-titulos);
   font-size:clamp(2rem,4vw,3.2rem);
-  line-height:1;
-  margin:0
+  line-height:1.0;
+  margin:0;
+  position:relative;z-index:1;
 }
 .llamada-accion p{
-  color:rgba(255,255,255,.82);
-  max-width:720px
+  color:rgba(255,255,255,.8);
+  max-width:640px;
+  position:relative;z-index:1;
+  margin-top:.5rem;
 }
+.llamada-accion .boton{position:relative;z-index:1}
+
 /* ===============================
-   CONTACTO Y MAPA
+   INGRESO PASOS
+   =============================== */
+.pasos-grid{
+  display:grid;
+  gap:0;
+  margin-top:1.5rem;
+}
+.paso{
+  display:flex;
+  gap:1.2rem;
+  align-items:flex-start;
+  background:#fff;
+  border:1px solid rgba(105,75,54,.1);
+  border-radius:22px;
+  padding:1.3rem;
+  margin-bottom:1rem;
+  box-shadow:0 4px 16px rgba(26,20,16,.05);
+  transition:all .3s var(--ease);
+  position:relative;
+}
+.paso:last-child{margin-bottom:0}
+.paso:hover{
+  transform:translateX(6px);
+  box-shadow:0 10px 32px rgba(49,83,59,.1);
+  border-color:rgba(49,83,59,.2);
+}
+.paso .num-paso{
+  font-style:normal;
+  background:linear-gradient(135deg,var(--verde),var(--verde-vivo));
+  color:white;
+  width:40px;height:40px;
+  display:grid;
+  place-items:center;
+  border-radius:14px;
+  font-weight:900;
+  flex:0 0 auto;
+  font-size:1.1rem;
+  box-shadow:0 6px 16px rgba(49,83,59,.3);
+}
+.paso h3{margin:0;font-size:1.03rem}
+.paso p{margin:.2rem 0 0;color:var(--texto-suave);font-size:.92rem}
+
+/* ===============================
+   CONTACTO
    =============================== */
 .contacto-grid{
   display:grid;
   grid-template-columns:.9fr 1.1fr;
-  gap:1.2rem;
-  margin-top:2rem
+  gap:1.3rem;
+  margin-top:2.5rem;
 }
 .contacto-caja{
   background:rgba(255,255,255,.06);
   border:1px solid rgba(255,255,255,.1);
-  border-radius:28px;
-  padding:1.6rem
+  border-radius:30px;
+  padding:2rem;
 }
 .contacto-fila{
   display:flex;
-  gap:.9rem;
-  margin:.9rem 0;
-  align-items:flex-start
+  gap:1rem;
+  margin:.85rem 0;
+  align-items:flex-start;
 }
 .contacto-fila i{
   font-style:normal;
-  background:var(--verde);
-  width:42px;
-  height:42px;
-  border-radius:15px;
-  display:grid;
-  place-items:center;
-  flex:0 0 auto
+  background:linear-gradient(135deg,var(--verde),var(--verde-vivo));
+  width:44px;height:44px;
+  border-radius:16px;
+  display:grid;place-items:center;
+  flex:0 0 auto;
+  box-shadow:0 6px 16px rgba(49,83,59,.3);
+  transition:transform .3s var(--ease);
 }
-.contacto-fila b{
-  display:block;
-  color:#fff
-}
-.contacto-fila span,.contacto-fila a{
-  color:rgba(248,239,227,.78)
-}
+.contacto-fila:hover i{transform:scale(1.1) rotate(-5deg)}
+.contacto-fila b{display:block;color:#fff;font-size:.95rem}
+.contacto-fila span,.contacto-fila a{color:rgba(248,237,224,.78);transition:color .2s}
+.contacto-fila a:hover{color:white}
+
 .tarjeta-mapa{
-  background:linear-gradient(135deg,#e5edd9,#cdddc8);
-  border-radius:28px;
+  background:linear-gradient(135deg,#d5e8ce,#c0d9b8);
+  border-radius:30px;
   min-height:390px;
   position:relative;
   overflow:hidden;
-  color:#203427;
+  color:#1f3427;
   display:grid;
   place-items:center;
   text-align:center;
-  padding:2rem
+  padding:2rem;
 }
 .tarjeta-mapa:before{
   content:"";
-  position:absolute;
-  inset:-20%;
-  background:repeating-linear-gradient(35deg,rgba(49,83,59,.11) 0 18px,transparent 18px 58px),repeating-linear-gradient(115deg,rgba(105,75,54,.08) 0 14px,transparent 14px 70px)
+  position:absolute;inset:-20%;
+  background:
+    repeating-linear-gradient(35deg,rgba(49,83,59,.1) 0 20px,transparent 20px 60px),
+    repeating-linear-gradient(115deg,rgba(105,75,54,.07) 0 16px,transparent 16px 72px);
+  animation:rotarLento 60s linear infinite;
 }
 .marcador-mapa{
-  position:relative;
-  background:white;
+  position:relative;z-index:1;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(16px);
   border-radius:28px;
-  padding:1.4rem;
+  padding:1.6rem;
   box-shadow:var(--sombra);
-  max-width:420px
+  max-width:400px;
+  border:1px solid rgba(255,255,255,.8);
 }
-.marcador-mapa .grande{
-  font-size:2.4rem
-}
+.marcador-mapa .grande{font-size:2.6rem;animation:flotarA 4s ease-in-out infinite}
+.marcador-mapa h3{font-family:var(--fuente-titulos);font-size:1.5rem;margin:.4rem 0 .2rem}
+.marcador-mapa p{color:var(--texto-suave);margin:0 0 1rem}
+
+/* FAQ */
 .preguntas-frecuentes{
   display:grid;
-  gap:.7rem;
-  margin-top:2rem
+  gap:.75rem;
+  margin-top:2.5rem;
 }
 details{
-  background:white;
-  border:1px solid rgba(105,75,54,.13);
-  border-radius:18px;
-  padding:1rem 1.2rem
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:20px;
+  overflow:hidden;
+  transition:all .3s var(--ease);
+}
+details[open]{
+  background:rgba(255,255,255,.1);
+  border-color:rgba(255,255,255,.18);
 }
 summary{
-  font-weight:900;
-  color:var(--verde);
-  cursor:pointer
+  font-weight:800;
+  color:rgba(255,255,255,.9);
+  cursor:pointer;
+  padding:1.1rem 1.3rem;
+  list-style:none;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:.96rem;
 }
+summary::-webkit-details-marker{display:none}
+summary:after{
+  content:"＋";
+  font-size:1.3rem;
+  color:var(--marron-claro);
+  transition:transform .3s var(--ease);
+  flex:0 0 auto;
+}
+details[open] summary:after{transform:rotate(45deg)}
 details p{
-  color:var(--texto-suave);
-  margin:.7rem 0 0
+  color:rgba(248,237,224,.75);
+  margin:0;
+  padding:.2rem 1.3rem 1.2rem;
+  font-size:.94rem;
+  line-height:1.6;
 }
+
 /* ===============================
-   PIE DE PÁGINA Y BOTONES FLOTANTES
+   FOOTER
    =============================== */
 footer{
-  background:#17110d;
-  color:rgba(248,239,227,.65);
-  padding:3rem 0 6rem
+  background:linear-gradient(160deg,#120c06,#17110d,#120c06);
+  color:rgba(248,237,224,.6);
+  padding:4rem 0 7rem;
+  position:relative;
+  overflow:hidden;
+}
+footer:before{
+  content:"";
+  position:absolute;
+  width:600px;height:600px;
+  top:-200px;right:-200px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(49,83,59,.08),transparent 70%);
 }
 .pie-grid{
   display:grid;
-  grid-template-columns:1.5fr 1fr 1fr;
-  gap:2rem
+  grid-template-columns:1.6fr 1fr 1fr;
+  gap:2.5rem;
+  position:relative;z-index:1;
 }
-footer h3,footer h4{
+footer h3{
+  font-family:var(--fuente-titulos);
+  font-size:1.6rem;
   color:#fff;
-  margin-top:0
+  margin:0 0 .8rem;
 }
-footer a:hover{
-  color:white
+footer h4{
+  color:#fff;
+  margin:0 0 .8rem;
+  font-size:.95rem;
+  text-transform:uppercase;
+  letter-spacing:.1em;
 }
+footer p{line-height:1.7;font-size:.92rem}
+footer a{
+  display:block;
+  margin-bottom:.5rem;
+  transition:color .2s;
+  font-size:.92rem;
+}
+footer a:hover{color:white}
+.logo-footer{
+  width:44px;height:44px;
+  border-radius:14px;
+  background:linear-gradient(135deg,var(--verde),#5a8a60);
+  color:white;
+  display:grid;place-items:center;
+  font-family:var(--fuente-titulos);
+  font-size:1.4rem;
+  font-weight:700;
+  margin-bottom:1rem;
+}
+.separador-footer{
+  border:0;
+  height:1px;
+  background:rgba(255,255,255,.07);
+  margin:2rem 0 1rem;
+  position:relative;z-index:1;
+}
+.copyright{
+  font-size:.82rem;
+  position:relative;z-index:1;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:1rem;
+  color:rgba(248,237,224,.45);
+}
+
+/* ===============================
+   BARRA FLOTANTE
+   =============================== */
 .barra-flotante{
   position:fixed;
-  left:50%;
-  bottom:1rem;
+  left:50%;bottom:1.2rem;
   transform:translateX(-50%);
-  z-index:80;
-  display:flex;
-  gap:.7rem;
-  background:rgba(255,255,255,.78);
-  backdrop-filter:blur(14px);
-  border:1px solid rgba(105,75,54,.15);
-  box-shadow:var(--sombra);
-  padding:.55rem;
-  border-radius:999px
+  z-index:200;
+  display:flex;gap:.75rem;
+  background:rgba(255,255,255,.82);
+  backdrop-filter:blur(20px) saturate(1.5);
+  border:1px solid rgba(105,75,54,.14);
+  box-shadow:0 20px 50px rgba(26,20,16,.18);
+  padding:.6rem;
+  border-radius:999px;
+  animation:entrada .7s var(--ease) 1s both;
 }
-.barra-flotante .boton{
-  padding:.8rem 1.2rem
-}
+.barra-flotante .boton{padding:.85rem 1.3rem;font-size:.9rem}
+
 /* ===============================
-   RESPONSIVE: tablet y móvil
+   RESPONSIVE
    =============================== */
-@media (max-width:920px){
-  .enlaces{
-    display:none
-  }
-  .boton-menu{
-    display:block
-  }
+@media(max-width:920px){
+  .enlaces{display:none}
+  .boton-menu{display:block}
   .navegacion.abierto .enlaces{
     display:flex;
     position:absolute;
-    left:4vw;
-    right:4vw;
-    top:78px;
+    left:4vw;right:4vw;top:80px;
     flex-direction:column;
-    background:white;
+    background:rgba(255,255,255,.96);
+    backdrop-filter:blur(20px);
     border-radius:24px;
-    padding:1rem;
+    padding:1.2rem;
     box-shadow:var(--sombra);
-    align-items:stretch
+    align-items:stretch;
+    border:1px solid rgba(105,75,54,.1);
+    animation:entrada .35s var(--ease) both;
   }
   .navegacion.abierto .enlaces a{
-    padding:.7rem
+    padding:.8rem;
+    border-radius:14px;
+  }
+  .navegacion.abierto .enlaces a:hover{
+    background:var(--verde-claro);
   }
   .portada-grid,.grid-dos,.contacto-grid,.plantas-grid{
-    grid-template-columns:1fr
+    grid-template-columns:1fr;
   }
-  .foto-portada{
-    order:-1
-  }
-  .tarjeta-rapida{
-    left:1rem;
-    right:1rem;
-    max-width:none
-  }
-  .fila-confianza{
-    grid-template-columns:1fr
-  }
-  .franja-grid{
-    grid-template-columns:repeat(2,1fr)
-  }
-  .tarjetas{
-    grid-template-columns:1fr 1fr
-  }
-  .galeria{
-    grid-template-columns:1fr 1fr
-  }
-  .galeria figure:first-child{
-    grid-row:auto
-  }
-  .galeria figure:first-child img,.galeria img{
-    aspect-ratio:1.25/1
-  }
-  .actividades-grid{
-    grid-template-columns:1fr 1fr
-  }
-  .llamada-accion{
-    grid-template-columns:1fr
-  }
-  .pie-grid{
-    grid-template-columns:1fr
-  }
+  .foto-portada{order:-1}
+  .badge-flotante{display:none}
+  .tarjeta-rapida{left:1rem;right:1rem;max-width:none}
+  .fila-confianza{grid-template-columns:repeat(3,1fr)}
+  .franja-grid{grid-template-columns:repeat(2,1fr)}
+  .tarjetas{grid-template-columns:1fr 1fr}
+  .galeria{grid-template-columns:1fr 1fr}
+  .galeria figure:first-child{grid-row:auto}
+  .galeria figure:first-child img,.galeria img{aspect-ratio:1.25/1}
+  .actividades-grid{grid-template-columns:1fr 1fr}
+  .llamada-accion{grid-template-columns:1fr}
+  .pie-grid{grid-template-columns:1fr 1fr}
 }
-@media (max-width:560px){
-  .barra-superior .contenedor{
-    display:none
-  }
-  .marca strong{
-    font-size:1.2rem
-  }
-  .logo-marca{
-    width:42px;
-    height:42px
-  }
-  .portada{
-    padding-top:1.5rem
-  }
-  .portada h1{
-    font-size:3rem
-  }
-  .acciones-portada .boton{
-    width:100%
-  }
-  .tarjetas,.galeria{
-    grid-template-columns:1fr
-  }
-  .franja-grid{
-    grid-template-columns:1fr
-  }
+@media(max-width:560px){
+  .barra-superior .contenedor{display:none}
+  .marca strong{font-size:1.2rem}
+  .logo-marca{width:44px;height:44px}
+  .portada{padding-top:1.8rem}
+  .portada h1{font-size:3.2rem}
+  .acciones-portada .boton{width:100%}
+  .tarjetas,.galeria{grid-template-columns:1fr}
+  .franja-grid{grid-template-columns:1fr 1fr}
+  .fila-confianza{grid-template-columns:1fr 1fr}
+  .actividades-grid{grid-template-columns:1fr 1fr}
+  .pie-grid{grid-template-columns:1fr}
   .barra-flotante{
-    left:.7rem;
-    right:.7rem;
+    left:.7rem;right:.7rem;
     transform:none;
-    justify-content:center
+    justify-content:center;
   }
-  .barra-flotante .boton{
-    flex:1;
-    font-size:.92rem;
-    padding:.75rem .7rem
-  }
+  .barra-flotante .boton{flex:1;font-size:.88rem;padding:.78rem .7rem}
+  .llamada-accion{padding:1.6rem}
+}
+
+/* ===============================
+   CONTADORES ANIMADOS
+   =============================== */
+.contador{
+  display:inline-block;
+  transition:all .3s;
 }
   </style>
   <script type="application/ld+json">
@@ -840,786 +1357,567 @@ footer a:hover{
   </script>
  </head>
  <body>
-  <!-- BARRA SUPERIOR DE CONTACTO -->
+
+  <!-- BARRA SUPERIOR -->
   <div class="barra-superior">
    <div class="contenedor">
+    <span>Residencia de mayores en Béjar · Asociación sin ánimo de lucro · Fundada en 1853</span>
     <span>
-     Residencia de mayores en Béjar · Asociación sin ánimo de lucro
-    </span>
-    <span>
-     📞
-     <a href="tel:+34923402702">
-      923 40 27 02
-     </a>
-     · ✉️
-     <a href="mailto:buenpastorbejar@gmail.com">
-      buenpastorbejar@gmail.com
-     </a>
+     📞 <a href="tel:+34923402702">923 40 27 02</a>
+     &nbsp;·&nbsp; ✉️ <a href="mailto:buenpastorbejar@gmail.com">buenpastorbejar@gmail.com</a>
     </span>
    </div>
   </div>
-  <!-- MENÚ PRINCIPAL -->
+
+  <!-- MENÚ -->
   <nav class="navegacion" id="navegacion">
    <div class="contenedor navegacion-interior">
     <a class="marca" href="#inicio">
-     <div class="logo-marca">
-      BP
-     </div>
+     <div class="logo-marca">BP</div>
      <div>
-      <strong>
-       El Buen Pastor
-      </strong>
-      <span>
-       Béjar · desde 1853
-      </span>
+      <strong>El Buen Pastor</strong>
+      <span>Béjar · desde 1853</span>
      </div>
     </a>
-    <button aria-label="Abrir menú" class="boton-menu" id="botonMenu">
-     ☰
-    </button>
+    <button aria-label="Abrir menú" class="boton-menu" id="botonMenu">☰</button>
     <div class="enlaces">
-     <a href="#quienes">
-      Quiénes somos
-     </a>
-     <a href="#servicios">
-      Servicios
-     </a>
-     <a href="#instalaciones">
-      Instalaciones
-     </a>
-     <a href="#vida">
-      Vida diaria
-     </a>
-     <a href="#ingreso">
-      Ingreso
-     </a>
-     <a class="boton principal" href="#contacto">
-      Contactar
-     </a>
+     <a href="#quienes">Quiénes somos</a>
+     <a href="#servicios">Servicios</a>
+     <a href="#instalaciones">Instalaciones</a>
+     <a href="#vida">Vida diaria</a>
+     <a href="#ingreso">Ingreso</a>
+     <a class="boton principal" href="#contacto">Contactar</a>
     </div>
    </div>
   </nav>
-  <!-- CONTENIDO PRINCIPAL -->
+
   <main>
-   <!-- PORTADA -->
+   <!-- ===== HERO ===== -->
    <section class="portada" id="inicio">
+    <div class="patron-dots"></div>
     <div class="contenedor portada-grid">
      <div>
       <span class="insignia">
+       <span class="punto-vivo"></span>
        Hogar residencia · trato cercano
       </span>
       <h1>
        Un hogar seguro para quienes más
-       <em>
-        queremos
-       </em>
+       <em>queremos</em>
       </h1>
       <p>
        En El Buen Pastor cuidamos a personas mayores con atención integral, cocina propia, jardín, actividades y una trayectoria de más de 170 años al servicio de Béjar.
       </p>
       <div class="acciones-portada">
-       <a class="boton principal" href="tel:+34923402702">
-        📞 Llamar ahora
-       </a>
-       <a class="boton secundario" href="#contacto">
-        Solicitar información
-       </a>
+       <a class="boton principal" href="tel:+34923402702">📞 Llamar ahora</a>
+       <a class="boton secundario" href="#contacto">Solicitar información</a>
       </div>
       <div class="fila-confianza">
        <div class="dato-confianza">
-        <strong>
-         1853
-        </strong>
-        <small>
-         Fundación
-        </small>
+        <strong><span class="contador" data-objetivo="1853" data-inicio="1800">1853</span></strong>
+        <small>Año de fundación</small>
        </div>
        <div class="dato-confianza">
-        <strong>
-         118
-        </strong>
-        <small>
-         plazas residenciales
-        </small>
+        <strong><span class="contador" data-objetivo="118" data-inicio="0">118</span></strong>
+        <small>plazas residenciales</small>
        </div>
        <div class="dato-confianza">
-        <strong>
-         Sin lucro
-        </strong>
-        <small>
-         vocación social
-        </small>
+        <strong>Sin lucro</strong>
+        <small>vocación social</small>
        </div>
       </div>
      </div>
      <div class="foto-portada">
+      <div class="badge-flotante">
+       <span class="num">170+</span>
+       <span class="txt">años de historia</span>
+      </div>
       <div class="foto">
        <img alt="Fachada del Hogar Residencia El Buen Pastor en Béjar" src="imagenes/foto-01-fachada-del-hogar-residencia-el-buen-pasto.jpg"/>
       </div>
       <div class="tarjeta-rapida">
-       <strong>
-        Concertar una visita
-       </strong>
-       <span>
-        Llámenos y le orientamos sobre plazas, requisitos y proceso de ingreso.
-       </span>
+       <span class="chip">Visita gratuita</span>
+       <strong>Concertar una visita</strong>
+       <span>Llámenos y le orientamos sobre plazas, requisitos y proceso de ingreso.</span>
       </div>
      </div>
     </div>
    </section>
+
+   <!-- ===== FRANJA ===== -->
    <section class="franja">
     <div class="contenedor franja-grid">
-     <div class="elemento">
-      🌿
-      <b>
-       Jardín propio
-      </b>
-      <small>
-       paseo y descanso
-      </small>
+     <div class="elemento revelar revelar-retraso-1">
+      <span class="icono-franja">🌿</span>
+      <b>Jardín propio</b>
+      <small>paseo y descanso</small>
      </div>
-     <div class="elemento">
-      🍽️
-      <b>
-       Cocina propia
-      </b>
-      <small>
-       menús adaptados
-      </small>
+     <div class="elemento revelar revelar-retraso-2">
+      <span class="icono-franja">🍽️</span>
+      <b>Cocina propia</b>
+      <small>menús adaptados</small>
      </div>
-     <div class="elemento">
-      🩺
-      <b>
-       Atención sanitaria
-      </b>
-      <small>
-       medicina y enfermería
-      </small>
+     <div class="elemento revelar revelar-retraso-3">
+      <span class="icono-franja">🩺</span>
+      <b>Atención sanitaria</b>
+      <small>medicina y enfermería</small>
      </div>
-     <div class="elemento">
-      🧠
-      <b>
-       Vida activa
-      </b>
-      <small>
-       terapia y actividades
-      </small>
+     <div class="elemento revelar revelar-retraso-4">
+      <span class="icono-franja">🧠</span>
+      <b>Vida activa</b>
+      <small>terapia y actividades</small>
      </div>
-     <div class="elemento">
-      🏡
-      <b>
-       Estancias permanentes
-      </b>
-      <small>
-       ambiente familiar
-      </small>
+     <div class="elemento revelar revelar-retraso-5">
+      <span class="icono-franja">🏡</span>
+      <b>Estancia permanente</b>
+      <small>ambiente familiar</small>
      </div>
     </div>
    </section>
-   <!-- QUIÉNES SOMOS -->
+
+   <!-- ===== QUIÉNES SOMOS ===== -->
    <section class="seccion fondo-blanco" id="quienes">
     <div class="contenedor grid-dos">
-     <div class="tarjeta-imagen">
+     <div class="tarjeta-imagen revelar desde-izquierda">
       <img alt="Galerías con luz natural en la residencia" src="imagenes/foto-02-galerias-con-luz-natural-en-la-residencia.jpg"/>
      </div>
      <div>
-      <div class="etiqueta-seccion">
-       Quiénes somos
-      </div>
-      <h2 class="titulo">
+      <div class="etiqueta-seccion revelar">Quiénes somos</div>
+      <h2 class="titulo titulo-degradado revelar revelar-retraso-1">
        Cercanía, historia y
-       <em>
-        confianza
-       </em>
+       <em>confianza</em>
       </h2>
-      <p class="texto-destacado">
+      <p class="texto-destacado revelar revelar-retraso-2">
        Una asociación privada sin ánimo de lucro dedicada al cuidado de personas mayores. Una residencia con arraigo bejarano, gestionada con vocación de servicio y una idea sencilla: que cada residente se sienta acompañado, atendido y en casa.
       </p>
       <div class="lista-comprobacion">
-       <div class="comprobacion">
-        <i>
-         ✓
-        </i>
+       <div class="comprobacion revelar revelar-retraso-2">
+        <i>✓</i>
         <div>
-         <h3>
-          Trato humano y familiar
-         </h3>
-         <p>
-          Atención cercana para residentes y familias, con acompañamiento en el proceso de ingreso.
-         </p>
+         <h3>Trato humano y familiar</h3>
+         <p>Atención cercana para residentes y familias, con acompañamiento en el proceso de ingreso.</p>
         </div>
        </div>
-       <div class="comprobacion">
-        <i>
-         ✓
-        </i>
+       <div class="comprobacion revelar revelar-retraso-3">
+        <i>✓</i>
         <div>
-         <h3>
-          Institución bejarana
-         </h3>
-         <p>
-          Más de siglo y medio vinculada a la vida social de Béjar.
-         </p>
+         <h3>Institución bejarana</h3>
+         <p>Más de siglo y medio vinculada a la vida social de Béjar.</p>
         </div>
        </div>
-       <div class="comprobacion">
-        <i>
-         ✓
-        </i>
+       <div class="comprobacion revelar revelar-retraso-4">
+        <i>✓</i>
         <div>
-         <h3>
-          Entidad sin ánimo de lucro
-         </h3>
-         <p>
-          La prioridad es el cuidado, la convivencia y el bienestar de las personas mayores.
-         </p>
+         <h3>Entidad sin ánimo de lucro</h3>
+         <p>La prioridad es el cuidado, la convivencia y el bienestar de las personas mayores.</p>
         </div>
        </div>
       </div>
      </div>
     </div>
    </section>
+
+   <!-- ===== HISTORIA ===== -->
    <section class="seccion fondo-arena">
     <div class="contenedor grid-dos">
      <div>
-      <div class="etiqueta-seccion">
-       Historia
-      </div>
-      <h2 class="titulo">
+      <div class="etiqueta-seccion revelar">Historia</div>
+      <h2 class="titulo titulo-degradado revelar revelar-retraso-1">
        Más de 170 años
-       <em>
-        cuidando
-       </em>
+       <em>cuidando</em>
       </h2>
-      <p class="texto-destacado">
+      <p class="texto-destacado revelar revelar-retraso-2">
        El Buen Pastor nació en 1853 para atender a personas necesitadas y ha evolucionado hasta convertirse en un centro residencial adaptado a las necesidades actuales.
       </p>
      </div>
-     <div class="linea-tiempo">
-      <div class="hito">
-       <b>
-        1853
-       </b>
-       <p>
-        Apertura de la institución en Nochebuena.
-       </p>
+     <div class="timeline-wrap revelar" id="timelineWrap">
+      <div class="hito revelar revelar-retraso-1">
+       <b>1853</b>
+       <p>Apertura de la institución en Nochebuena, con vocación de servicio a los más necesitados.</p>
       </div>
-      <div class="hito">
-       <b>
-        1972
-       </b>
-       <p>
-        Inauguración de la sede actual en Calle Flamencos.
-       </p>
+      <div class="hito revelar revelar-retraso-2">
+       <b>1972</b>
+       <p>Inauguración de la sede actual en Calle Flamencos, modernizando las instalaciones.</p>
       </div>
-      <div class="hito">
-       <b>
-        2003
-       </b>
-       <p>
-        Medalla de Oro de la Ciudad de Béjar.
-       </p>
+      <div class="hito revelar revelar-retraso-3">
+       <b>2003</b>
+       <p>Medalla de Oro de la Ciudad de Béjar, reconocimiento a su labor social.</p>
       </div>
-      <div class="hito">
-       <b>
-        2008
-       </b>
-       <p>
-        Reconocimiento de la Junta de Castilla y León por la calidad de vida de las personas mayores.
-       </p>
+      <div class="hito revelar revelar-retraso-4">
+       <b>2008</b>
+       <p>Reconocimiento de la Junta de Castilla y León por la calidad de vida de las personas mayores.</p>
       </div>
      </div>
     </div>
    </section>
-   <!-- SERVICIOS -->
+
+   <!-- ===== SERVICIOS ===== -->
    <section class="seccion fondo-oscuro" id="servicios">
     <div class="contenedor">
-     <div class="etiqueta-seccion">
-      Servicios
+     <div style="text-align:center">
+      <div class="etiqueta-seccion revelar" style="color:var(--marron-claro)">Servicios</div>
+      <h2 class="titulo revelar revelar-retraso-1" style="color:#f8ede0">
+       Atención integral en el propio centro
+      </h2>
+      <p class="texto-destacado revelar revelar-retraso-2" style="margin:0 auto">
+       Servicios asistenciales, sanitarios, sociales y de ocio coordinados para facilitar el día a día.
+      </p>
      </div>
-     <h2 class="titulo">
-      Atención integral en el propio centro
-     </h2>
-     <p class="texto-destacado">
-      Servicios asistenciales, sanitarios, sociales y de ocio coordinados para facilitar el día a día.
-     </p>
      <div class="tarjetas">
-      <div class="tarjeta">
-       <div class="icono">
-        🩺
-       </div>
-       <h3>
-        Salud
-       </h3>
-       <p>
-        Medicina general, enfermería, farmacia y seguimiento diario.
-       </p>
+      <div class="tarjeta revelar revelar-retraso-1">
+       <div class="icono">🩺</div>
+       <h3>Salud</h3>
+       <p>Medicina general, enfermería, farmacia y seguimiento diario.</p>
       </div>
-      <div class="tarjeta">
-       <div class="icono">
-        🦽
-       </div>
-       <h3>
-        Rehabilitación
-       </h3>
-       <p>
-        Fisioterapia, gimnasio y mantenimiento de la movilidad.
-       </p>
+      <div class="tarjeta revelar revelar-retraso-2">
+       <div class="icono">🦽</div>
+       <h3>Rehabilitación</h3>
+       <p>Fisioterapia, gimnasio y mantenimiento de la movilidad.</p>
       </div>
-      <div class="tarjeta">
-       <div class="icono">
-        🧠
-       </div>
-       <h3>
-        Terapia ocupacional
-       </h3>
-       <p>
-        Estimulación cognitiva, talleres y actividades funcionales.
-       </p>
+      <div class="tarjeta revelar revelar-retraso-3">
+       <div class="icono">🧠</div>
+       <h3>Terapia ocupacional</h3>
+       <p>Estimulación cognitiva, talleres y actividades funcionales.</p>
       </div>
-      <div class="tarjeta">
-       <div class="icono">
-        🥗
-       </div>
-       <h3>
-        Nutrición
-       </h3>
-       <p>
-        Cocina propia y dietas adaptadas a las necesidades de cada persona.
-       </p>
+      <div class="tarjeta revelar revelar-retraso-4">
+       <div class="icono">🥗</div>
+       <h3>Nutrición</h3>
+       <p>Cocina propia y dietas adaptadas a las necesidades de cada persona.</p>
       </div>
-      <div class="tarjeta">
-       <div class="icono">
-        👥
-       </div>
-       <h3>
-        Trabajo social
-       </h3>
-       <p>
-        Orientación y apoyo a residentes y familiares.
-       </p>
+      <div class="tarjeta revelar revelar-retraso-5">
+       <div class="icono">👥</div>
+       <h3>Trabajo social</h3>
+       <p>Orientación y apoyo a residentes y familiares en todo el proceso.</p>
       </div>
-      <div class="tarjeta">
-       <div class="icono">
-        🎭
-       </div>
-       <h3>
-        Ocio y comunidad
-       </h3>
-       <p>
-        Biblioteca, prensa, sala multimedia, celebraciones, huerto y coro.
-       </p>
+      <div class="tarjeta revelar revelar-retraso-5">
+       <div class="icono">🎭</div>
+       <h3>Ocio y comunidad</h3>
+       <p>Biblioteca, sala multimedia, celebraciones, huerto y Coro Jovial.</p>
       </div>
      </div>
     </div>
    </section>
-   <!-- INSTALACIONES -->
+
+   <!-- ===== INSTALACIONES ===== -->
    <section class="seccion" id="instalaciones">
     <div class="contenedor">
      <div style="text-align:center">
-      <div class="etiqueta-seccion">
-       Instalaciones
-      </div>
-      <h2 class="titulo">
+      <div class="etiqueta-seccion revelar">Instalaciones</div>
+      <h2 class="titulo titulo-degradado revelar revelar-retraso-1">
        Espacios reales para
-       <em>
-        vivir bien
-       </em>
+       <em>vivir bien</em>
       </h2>
-      <p class="texto-destacado" style="margin-left:auto;margin-right:auto">
+      <p class="texto-destacado revelar revelar-retraso-2" style="margin:0 auto">
        Habitaciones, jardín, galerías soleadas y zonas comunes diseñadas para la convivencia, el descanso y la atención diaria.
       </p>
      </div>
-     <div class="galeria">
+     <div class="galeria revelar revelar-retraso-2">
       <figure>
        <img alt="Jardín exterior de la residencia" src="imagenes/foto-03-jardin-exterior-de-la-residencia.jpg"/>
-       <figcaption>
-        Jardín y zonas exteriores
-       </figcaption>
+       <figcaption>🌿 Jardín y zonas exteriores</figcaption>
       </figure>
       <figure>
        <img alt="Habitación de la residencia" src="imagenes/foto-04-habitacion-de-la-residencia.jpg"/>
-       <figcaption>
-        Habitaciones individuales y dobles
-       </figcaption>
+       <figcaption>🛏 Habitaciones individuales y dobles</figcaption>
       </figure>
       <figure>
        <img alt="Galerías con luz natural" src="imagenes/foto-02-galerias-con-luz-natural-en-la-residencia.jpg"/>
-       <figcaption>
-        Galerías con luz natural
-       </figcaption>
+       <figcaption>☀️ Galerías con luz natural</figcaption>
       </figure>
       <figure>
        <img alt="Actividad grupal en salón" src="imagenes/foto-05-actividad-grupal-en-salon.jpg"/>
-       <figcaption>
-        Salones y convivencia
-       </figcaption>
+       <figcaption>🎉 Salones y convivencia</figcaption>
       </figure>
       <figure>
        <img alt="Sala común de la residencia" src="imagenes/foto-06-sala-comun-de-la-residencia.jpg"/>
-       <figcaption>
-        Salas comunes
-       </figcaption>
+       <figcaption>🏠 Salas comunes</figcaption>
       </figure>
      </div>
      <div class="plantas-grid">
-      <div class="tarjeta">
-       <h3>
-        Distribución del edificio
-       </h3>
-       <p>
-        Recepción, administración, lavandería, salones, comedor, capilla, cocina propia, consulta médica, enfermería, gimnasio y plantas residenciales.
-       </p>
+      <div class="tarjeta revelar desde-izquierda">
+       <h3>Distribución del edificio</h3>
+       <p>Recepción, administración, lavandería, salones, comedor, capilla, cocina propia, consulta médica, enfermería, gimnasio y plantas residenciales.</p>
       </div>
-      <div class="tarjeta">
-       <h3>
-        Habitaciones
-       </h3>
-       <p>
-        Habitaciones individuales y dobles con baño adaptado, cama articulada, llamador de emergencia, teléfono, televisión, armario y luz natural.
-       </p>
+      <div class="tarjeta revelar desde-derecha">
+       <h3>Habitaciones equipadas</h3>
+       <p>Individuales y dobles con baño adaptado, cama articulada, llamador de emergencia, teléfono, televisión, armario y luz natural.</p>
        <div class="lista-etiquetas">
-        <span class="etiqueta">
-         Baño adaptado
-        </span>
-        <span class="etiqueta">
-         Cama articulada
-        </span>
-        <span class="etiqueta">
-         Llamador
-        </span>
-        <span class="etiqueta">
-         Luz natural
-        </span>
-        <span class="etiqueta">
-         Personalizables
-        </span>
+        <span class="etiqueta">Baño adaptado</span>
+        <span class="etiqueta">Cama articulada</span>
+        <span class="etiqueta">Llamador</span>
+        <span class="etiqueta">Luz natural</span>
+        <span class="etiqueta">Personalizables</span>
        </div>
       </div>
      </div>
     </div>
    </section>
-   <!-- VIDA DIARIA -->
+
+   <!-- ===== VIDA DIARIA ===== -->
    <section class="seccion fondo-blanco" id="vida">
     <div class="contenedor">
      <div class="grid-dos">
       <div>
-       <div class="etiqueta-seccion">
-        Vida diaria
-       </div>
-       <h2 class="titulo">
+       <div class="etiqueta-seccion revelar">Vida diaria</div>
+       <h2 class="titulo titulo-degradado revelar revelar-retraso-1">
         Cuidar también es
-        <em>
-         acompañar
-        </em>
+        <em>acompañar</em>
        </h2>
-       <p class="texto-destacado">
+       <p class="texto-destacado revelar revelar-retraso-2">
         La residencia promueve convivencia, participación y bienestar emocional: gimnasia adaptada, estimulación cognitiva, manualidades, celebraciones, huerto urbano, actividades al aire libre y el Coro Jovial.
        </p>
       </div>
-      <div class="tarjeta-imagen">
+      <div class="tarjeta-imagen revelar desde-derecha">
        <img alt="Coro Jovial del Buen Pastor" src="imagenes/foto-07-coro-jovial-del-buen-pastor.jpg"/>
       </div>
      </div>
      <div class="actividades-grid">
-      <div class="actividad">
+      <div class="actividad revelar revelar-retraso-1">
        <img alt="Merienda en el jardín" src="imagenes/foto-08-merienda-en-el-jardin.jpg"/>
-       <span>
-        Meriendas
-       </span>
+       <span>🍰 Meriendas</span>
       </div>
-      <div class="actividad">
+      <div class="actividad revelar revelar-retraso-2">
        <img alt="Baile y actividad grupal" src="imagenes/foto-05-actividad-grupal-en-salon.jpg"/>
-       <span>
-        Actividades
-       </span>
+       <span>🎊 Actividades</span>
       </div>
-      <div class="actividad">
+      <div class="actividad revelar revelar-retraso-3">
        <img alt="Coro Jovial" src="imagenes/foto-07-coro-jovial-del-buen-pastor.jpg"/>
-       <span>
-        Coro Jovial
-       </span>
+       <span>🎵 Coro Jovial</span>
       </div>
-      <div class="actividad">
+      <div class="actividad revelar revelar-retraso-4">
        <img alt="Actividad al aire libre" src="imagenes/foto-09-actividad-al-aire-libre.jpg"/>
-       <span>
-        Aire libre
-       </span>
+       <span>🌤 Aire libre</span>
       </div>
      </div>
-     <div class="llamada-accion">
+     <div class="llamada-accion revelar">
       <div>
-       <h2>
-        ¿Quiere conocer la residencia?
-       </h2>
-       <p>
-        La mejor forma de decidir es hablar con el centro y resolver dudas sobre plazas, requisitos, cuidados y vida diaria.
-       </p>
+       <h2>¿Quiere conocer la residencia?</h2>
+       <p>La mejor forma de decidir es hablar con el centro y resolver dudas sobre plazas, requisitos, cuidados y vida diaria.</p>
       </div>
-      <a class="boton claro" href="tel:+34923402702">
-       📞 923 40 27 02
-      </a>
+      <a class="boton claro" href="tel:+34923402702">📞 923 40 27 02</a>
      </div>
     </div>
    </section>
-   <!-- INGRESO -->
+
+   <!-- ===== INGRESO ===== -->
    <section class="seccion fondo-arena" id="ingreso">
     <div class="contenedor grid-dos">
      <div>
-      <div class="etiqueta-seccion">
-       Ingreso
-      </div>
-      <h2 class="titulo">
-       Le orientamos paso a paso
+      <div class="etiqueta-seccion revelar">Ingreso</div>
+      <h2 class="titulo titulo-degradado revelar revelar-retraso-1">
+       Le orientamos
+       <em>paso a paso</em>
       </h2>
-      <p class="texto-destacado">
+      <p class="texto-destacado revelar revelar-retraso-2">
        Para disponibilidad de plazas, documentación o requisitos de admisión, contacte directamente con la residencia. El equipo le informará de forma personalizada.
       </p>
      </div>
-     <div class="lista-comprobacion">
-      <div class="comprobacion">
-       <i>
-        1
-       </i>
+     <div class="pasos-grid">
+      <div class="paso revelar revelar-retraso-1">
+       <span class="num-paso">1</span>
        <div>
-        <h3>
-         Solicite información
-        </h3>
-        <p>
-         Llamada o email para resolver dudas iniciales.
-        </p>
+        <h3>Solicite información</h3>
+        <p>Llamada o email para resolver dudas iniciales sobre disponibilidad y servicios.</p>
        </div>
       </div>
-      <div class="comprobacion">
-       <i>
-        2
-       </i>
+      <div class="paso revelar revelar-retraso-2">
+       <span class="num-paso">2</span>
        <div>
-        <h3>
-         Conozca el centro
-        </h3>
-        <p>
-         Puede concertar visita para ver instalaciones y ambiente.
-        </p>
+        <h3>Conozca el centro</h3>
+        <p>Puede concertar visita para ver instalaciones y el ambiente del hogar.</p>
        </div>
       </div>
-      <div class="comprobacion">
-       <i>
-        3
-       </i>
+      <div class="paso revelar revelar-retraso-3">
+       <span class="num-paso">3</span>
        <div>
-        <h3>
-         Proceso de admisión
-        </h3>
-        <p>
-         Información sobre documentación, disponibilidad y condiciones.
-        </p>
+        <h3>Proceso de admisión</h3>
+        <p>Información personalizada sobre documentación, disponibilidad y condiciones.</p>
        </div>
       </div>
      </div>
     </div>
    </section>
-   <!-- CONTACTO -->
+
+   <!-- ===== CONTACTO ===== -->
    <section class="seccion fondo-oscuro" id="contacto">
     <div class="contenedor">
      <div style="text-align:center">
-      <div class="etiqueta-seccion">
-       Contacto
-      </div>
-      <h2 class="titulo">
-       Hablemos con calma
-      </h2>
-      <p class="texto-destacado" style="margin-left:auto;margin-right:auto">
+      <div class="etiqueta-seccion revelar" style="color:var(--marron-claro)">Contacto</div>
+      <h2 class="titulo revelar revelar-retraso-1" style="color:#f8ede0">Hablemos con calma</h2>
+      <p class="texto-destacado revelar revelar-retraso-2" style="margin:0 auto">
        Estamos en Calle Flamencos, 12, Béjar. Llámenos, escriba o abra la ubicación para llegar directamente.
       </p>
      </div>
      <div class="contacto-grid">
-      <div class="contacto-caja">
+      <div class="contacto-caja revelar desde-izquierda">
        <div class="contacto-fila">
-        <i>
-         📞
-        </i>
+        <i>📞</i>
         <div>
-         <b>
-          Teléfono
-         </b>
-         <a href="tel:+34923402702">
-          923 40 27 02
-         </a>
+         <b>Teléfono</b>
+         <a href="tel:+34923402702">923 40 27 02</a>
         </div>
        </div>
        <div class="contacto-fila">
-        <i>
-         ✉️
-        </i>
+        <i>✉️</i>
         <div>
-         <b>
-          Email
-         </b>
-         <a href="mailto:buenpastorbejar@gmail.com">
-          buenpastorbejar@gmail.com
-         </a>
+         <b>Email</b>
+         <a href="mailto:buenpastorbejar@gmail.com">buenpastorbejar@gmail.com</a>
         </div>
        </div>
        <div class="contacto-fila">
-        <i>
-         📍
-        </i>
+        <i>📍</i>
         <div>
-         <b>
-          Dirección
-         </b>
-         <span>
-          Calle Flamencos, 12 · 37700 Béjar, Salamanca
-         </span>
+         <b>Dirección</b>
+         <span>Calle Flamencos, 12 · 37700 Béjar, Salamanca</span>
         </div>
        </div>
-       <div style="display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1.4rem">
-        <a class="boton principal" href="tel:+34923402702">
-         Llamar
-        </a>
-        <a class="boton secundario" href="mailto:buenpastorbejar@gmail.com">
-         Enviar email
-        </a>
+       <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.6rem">
+        <a class="boton principal" href="tel:+34923402702">📞 Llamar ahora</a>
+        <a class="boton secundario" href="mailto:buenpastorbejar@gmail.com" style="border-color:rgba(255,255,255,.25);color:white">✉️ Enviar email</a>
        </div>
       </div>
-      <div class="tarjeta-mapa">
+      <div class="tarjeta-mapa revelar desde-derecha">
        <div class="marcador-mapa">
-        <div class="grande">
-         📍
-        </div>
-        <h3>
-         El Buen Pastor · Béjar
-        </h3>
-        <p>
-         Calle Flamencos, 12
-        </p>
+        <div class="grande">📍</div>
+        <h3>El Buen Pastor · Béjar</h3>
+        <p>Calle Flamencos, 12 · Salamanca</p>
         <div style="display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap">
-         <a class="boton principal" href="https://maps.google.com/?q=Calle+Flamencos+12+Bejar+Salamanca" rel="noopener" target="_blank">
-          Abrir Google Maps
-         </a>
-         <a class="boton secundario" href="https://www.openstreetmap.org/search?query=Calle%20Flamencos%2012%20Bejar" rel="noopener" target="_blank">
-          OpenStreetMap
-         </a>
+         <a class="boton principal" href="https://maps.google.com/?q=Calle+Flamencos+12+Bejar+Salamanca" rel="noopener" target="_blank">Abrir Google Maps</a>
+         <a class="boton secundario" href="https://www.openstreetmap.org/search?query=Calle%20Flamencos%2012%20Bejar" rel="noopener" target="_blank">OpenStreetMap</a>
         </div>
        </div>
       </div>
      </div>
      <div class="preguntas-frecuentes">
-      <details>
-       <summary>
-        ¿Tiene plazas concertadas?
-       </summary>
-       <p>
-        La información pública del centro indica que no dispone de plazas concertadas. Conviene confirmar disponibilidad y condiciones directamente con la residencia.
-       </p>
+      <details class="revelar revelar-retraso-1">
+       <summary>¿Tiene plazas concertadas?</summary>
+       <p>La información pública del centro indica que no dispone de plazas concertadas. Conviene confirmar disponibilidad y condiciones directamente con la residencia.</p>
       </details>
-      <details>
-       <summary>
-        ¿La estancia es temporal o permanente?
-       </summary>
-       <p>
-        La residencia informa de estancias permanentes. Para casos concretos, contacte con el centro.
-       </p>
+      <details class="revelar revelar-retraso-2">
+       <summary>¿La estancia es temporal o permanente?</summary>
+       <p>La residencia informa de estancias permanentes. Para casos concretos, contacte con el centro.</p>
       </details>
-      <details>
-       <summary>
-        ¿Puedo visitar la residencia antes de decidir?
-       </summary>
-       <p>
-        Sí, lo recomendable es llamar para concertar una visita y resolver dudas personalmente.
-       </p>
+      <details class="revelar revelar-retraso-3">
+       <summary>¿Puedo visitar la residencia antes de decidir?</summary>
+       <p>Sí, lo recomendable es llamar para concertar una visita y resolver dudas personalmente con el equipo.</p>
       </details>
      </div>
     </div>
    </section>
   </main>
+
   <!-- PIE DE PÁGINA -->
   <footer>
    <div class="contenedor pie-grid">
     <div>
-     <h3>
-      Hogar Residencia El Buen Pastor
-     </h3>
-     <p>
-      Residencia de mayores en Béjar desde 1853. Entidad privada sin ánimo de lucro dedicada al cuidado y acompañamiento de personas mayores.
-     </p>
+     <div class="logo-footer">BP</div>
+     <h3>Hogar Residencia El Buen Pastor</h3>
+     <p>Residencia de mayores en Béjar desde 1853. Entidad privada sin ánimo de lucro dedicada al cuidado y acompañamiento de personas mayores.</p>
     </div>
     <div>
-     <h4>
-      Navegación
-     </h4>
-     <p>
-      <a href="#servicios">
-       Servicios
-      </a>
-      <br/>
-      <a href="#instalaciones">
-       Instalaciones
-      </a>
-      <br/>
-      <a href="#vida">
-       Vida diaria
-      </a>
-      <br/>
-      <a href="#contacto">
-       Contacto
-      </a>
-     </p>
+     <h4>Navegación</h4>
+     <a href="#quienes">Quiénes somos</a>
+     <a href="#servicios">Servicios</a>
+     <a href="#instalaciones">Instalaciones</a>
+     <a href="#vida">Vida diaria</a>
+     <a href="#ingreso">Ingreso</a>
+     <a href="#contacto">Contacto</a>
     </div>
     <div>
-     <h4>
-      Contacto
-     </h4>
-     <p>
-      <a href="tel:+34923402702">
-       923 40 27 02
-      </a>
-      <br/>
-      <a href="mailto:buenpastorbejar@gmail.com">
-       buenpastorbejar@gmail.com
-      </a>
-      <br/>
-      C/ Flamencos, 12 · Béjar
-     </p>
+     <h4>Contacto</h4>
+     <a href="tel:+34923402702">📞 923 40 27 02</a>
+     <a href="mailto:buenpastorbejar@gmail.com">✉️ buenpastorbejar@gmail.com</a>
+     <p style="margin-top:.5rem">📍 C/ Flamencos, 12<br>37700 Béjar, Salamanca</p>
     </div>
    </div>
-   <div class="contenedor" style="border-top:1px solid rgba(255,255,255,.08);margin-top:2rem;padding-top:1rem;font-size:.85rem">
-    ©
-    <span id="anioActual">
-    </span>
-    Hogar Residencia El Buen Pastor. Textos legales pendientes de completar con datos oficiales.
+   <hr class="separador-footer"/>
+   <div class="contenedor copyright">
+    <span>© <span id="anioActual"></span> Hogar Residencia El Buen Pastor · Béjar</span>
+    <span>Textos legales pendientes de completar con datos oficiales.</span>
    </div>
   </footer>
+
   <!-- BOTONES FLOTANTES -->
   <div class="barra-flotante">
-   <a class="boton secundario" href="mailto:buenpastorbejar@gmail.com">
-    ✉️ Email
-   </a>
-   <a class="boton principal" href="tel:+34923402702">
-    📞 Llamar
-   </a>
+   <a class="boton secundario" href="mailto:buenpastorbejar@gmail.com">✉️ Email</a>
+   <a class="boton principal" href="tel:+34923402702">📞 Llamar</a>
   </div>
-  <script>
-   // Año automático del pie de página.
-const elementoAnio = document.getElementById('anioActual');
-elementoAnio.textContent = new Date().getFullYear();
 
-// Menú móvil: abrir y cerrar al pulsar el botón.
+  <script>
+/* Año automático */
+document.getElementById('anioActual').textContent = new Date().getFullYear();
+
+/* Menú móvil */
 const botonMenu = document.getElementById('botonMenu');
 const navegacion = document.getElementById('navegacion');
-
 botonMenu.addEventListener('click', () => {
   navegacion.classList.toggle('abierto');
+  botonMenu.textContent = navegacion.classList.contains('abierto') ? '✕' : '☰';
+});
+document.querySelectorAll('.enlaces a').forEach(a => {
+  a.addEventListener('click', () => {
+    navegacion.classList.remove('abierto');
+    botonMenu.textContent = '☰';
+  });
 });
 
-// Cerrar el menú móvil al pulsar cualquier enlace.
-const enlacesMenu = document.querySelectorAll('.enlaces a');
+/* Nav sombra al scroll */
+window.addEventListener('scroll', () => {
+  navegacion.classList.toggle('con-sombra', window.scrollY > 20);
+}, {passive:true});
 
-enlacesMenu.forEach((enlace) => {
-  enlace.addEventListener('click', () => {
-    navegacion.classList.remove('abierto');
+/* ===== SCROLL REVEAL ===== */
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
   });
+}, {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+
+document.querySelectorAll('.revelar').forEach(el => observer.observe(el));
+
+/* ===== TIMELINE REVEAL ===== */
+const timelineObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, {threshold:.2});
+const tw = document.getElementById('timelineWrap');
+if(tw) timelineObserver.observe(tw);
+
+/* ===== CONTADOR ANIMADO ===== */
+function animarContador(el, inicio, fin, duracion) {
+  const rango = fin - inicio;
+  const inicioTs = performance.now();
+  function paso(ts) {
+    const transcurrido = ts - inicioTs;
+    const progreso = Math.min(transcurrido / duracion, 1);
+    /* easing out quart */
+    const ease = 1 - Math.pow(1 - progreso, 4);
+    el.textContent = Math.round(inicio + rango * ease);
+    if (progreso < 1) requestAnimationFrame(paso);
+  }
+  requestAnimationFrame(paso);
+}
+
+const contadorObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const fin = parseInt(el.dataset.objetivo, 10);
+      const inicio = parseInt(el.dataset.inicio, 10);
+      animarContador(el, inicio, fin, 2000);
+      contadorObserver.unobserve(el);
+    }
+  });
+}, {threshold:.5});
+
+document.querySelectorAll('.contador[data-objetivo]').forEach(el => {
+  contadorObserver.observe(el);
 });
   </script>
  </body>
